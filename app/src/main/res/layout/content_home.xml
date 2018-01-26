@@ -14,26 +14,11 @@
     tools:showIn="@layout/activity_home">
 
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/ussdcode"
-        android:layout_marginTop="99dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:hint="number"
-        android:inputType="phone"/>
-
-    <Button
-        android:text="DIAL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ussdcode"
-        android:layout_marginTop="23dp"
-        android:id="@+id/button"
-        android:layout_alignLeft="@+id/ussdcode"
-        android:layout_alignStart="@+id/ussdcode"
-        android:layout_alignRight="@+id/ussdcode"
-        android:layout_alignEnd="@+id/ussdcode" />
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:scrollbars="vertical"
+        android:id="@+id/rv_banks" />
 </RelativeLayout>
