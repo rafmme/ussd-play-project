@@ -20,10 +20,12 @@ public class BanksDataAdapter extends RecyclerView.Adapter<BanksDataAdapter.Bank
 
     private ArrayList<BanksData> banksList;
     private Context mContext;
+    final private GridItemClickListener gridItemClickListener;
 
-    public BanksDataAdapter(Context context, ArrayList<BanksData> listOfBanks){
+    public BanksDataAdapter(Context context, ArrayList<BanksData> listOfBanks, GridItemClickListener gridItemClickListener){
         this.banksList = listOfBanks;
         this.mContext = context;
+        this.gridItemClickListener = gridItemClickListener;
     }
 
     @Override
@@ -50,7 +52,11 @@ public class BanksDataAdapter extends RecyclerView.Adapter<BanksDataAdapter.Bank
         return banksList.size();
     }
 
-    public class BanksViewHolder extends RecyclerView.ViewHolder{
+    public interface GridItemClickListener{
+        void onGridItemClickListener(int clickedItemIndex);
+    }
+
+    public class BanksViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView bankName;
         ImageView bankImage;
         TextView bankUssd;
@@ -59,7 +65,13 @@ public class BanksDataAdapter extends RecyclerView.Adapter<BanksDataAdapter.Bank
             bankName = (TextView) view.findViewById(R.id.bank_name);
             bankImage = (ImageView) view.findViewById(R.id.bank_image);
             bankUssd = (TextView) view.findViewById(R.id.bank_ussd);
+            view.setOnClickListener(this);
         }
 
+        @Override
+        public void onClick(View view) {
+            int clickedPosition = getAdapterPosition();
+            gridItemClickListener.onGridItemClickListener(clickedPosition);
+        }
     }
 }

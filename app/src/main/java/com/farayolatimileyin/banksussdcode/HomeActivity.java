@@ -12,11 +12,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.GridItemClickListener {
 
     RecyclerView rv_banks;
     RecyclerView.Adapter mAdapter;
-    ArrayList<BanksData> banksDataList = new ArrayList<>();;
+    ArrayList<BanksData> banksDataList = new ArrayList<>();
     String[] bankNames;
     String[] bankImageNames;
     String[] bankUssdCodes;
@@ -32,7 +32,7 @@ public class HomeActivity extends AppCompatActivity {
         rv_banks.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
         rv_banks.setItemAnimator(new DefaultItemAnimator());
         rv_banks.setHasFixedSize(true);
-        mAdapter = new BanksDataAdapter(this, banksDataList);
+        mAdapter = new BanksDataAdapter(this, banksDataList, this);
         rv_banks.setAdapter(mAdapter);
 
     }
@@ -45,6 +45,11 @@ public class HomeActivity extends AppCompatActivity {
             BanksData banksData = new BanksData(bankNames[i],bankImageNames[i],bankUssdCodes[i]);
             banksDataList.add(banksData);
         }
+    }
+
+    @Override
+    public void onGridItemClickListener(int clickedItemIndex) {
+        Toast.makeText(HomeActivity.this,banksDataList.get(clickedItemIndex).toString(),Toast.LENGTH_LONG).show();
     }
 
     @Override
