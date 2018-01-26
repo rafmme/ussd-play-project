@@ -1,4 +1,58 @@
 <resources>
     <string name="app_name">USSD HELPER</string>
     <string name="action_settings">Settings</string>
+
+    <string name="access">Access Bank</string>
+    <string name="diamond">Diamond Bank</string>
+    <string name="eco">Eco Bank</string>
+    <string name="fcmb">FCMB</string>
+    <string name="fidelity">Fidelity Bank</string>
+    <string name="first">First Bank</string>
+    <string name="gtb">GT Bank</string>
+    <string name="heritage">Heritage Bank</string>
+    <string name="keystone">Keystone Bank</string>
+    <string name="skye">Skye Bank</string>
+    <string name="stanbic">Stanbic IBTC Bank</string>
+    <string name="sterling">Sterling Bank</string>
+    <string name="uba">UBA</string>
+    <string name="union">Union Bank</string>
+    <string name="unity">Unity Bank</string>
+    <string name="wema">Wema Bank</string>
+    <string name="zenith">Zenith Bank</string>
+
+    <string name="access_image">accessbank</string>
+    <string name="diamond_image">diamondbank</string>
+    <string name="eco_image">ecobank</string>
+    <string name="fcmb_image">fcmbbank</string>
+    <string name="fidelity_image">fidelitybank</string>
+    <string name="first_image">firstbank</string>
+    <string name="gtb_image">gtbank</string>
+    <string name="heritage_image">heritagebank</string>
+    <string name="keystone_image">keystonebank</string>
+    <string name="skye_image">skyebank</string>
+    <string name="stanbic_image">stanbicibtcbank</string>
+    <string name="sterling_image">sterlingbank</string>
+    <string name="uba_image">ubabank</string>
+    <string name="union_image">unionbank</string>
+    <string name="unity_image">unitybank</string>
+    <string name="wema_image">wemabank</string>
+    <string name="zenith_image">zenithbank</string>
+
+    <string name="access_ussd">*901</string>
+    <string name="diamond_ussd">*710</string>
+    <string name="eco_ussd">*326</string>
+    <string name="fcmb_ussd">*389*214</string>
+    <string name="fidelity_ussd">*770</string>
+    <string name="first_ussd">*894</string>
+    <string name="gtb_ussd">*737</string>
+    <string name="heritage_ussd">*322*030</string>
+    <string name="keystone_ussd">*322*082</string>
+    <string name="skye_ussd">*833</string>
+    <string name="stanbic_ussd">*909</string>
+    <string name="sterling_ussd">*822</string>
+    <string name="uba_ussd">*919</string>
+    <string name="union_ussd">*389*032</string>
+    <string name="unity_ussd">*389*215</string>
+    <string name="wema_ussd">*945</string>
+    <string name="zenith_ussd">*966</string>
 </resources>

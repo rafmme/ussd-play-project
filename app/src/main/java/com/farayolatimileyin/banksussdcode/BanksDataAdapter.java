@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,9 +20,9 @@ import butterknife.ButterKnife;
 
 public class BanksDataAdapter extends RecyclerView.Adapter<BanksDataAdapter.BanksViewHolder> {
 
-    private List<BanksData> banksList;
+    private ArrayList<BanksData> banksList;
 
-    public BanksDataAdapter(List<BanksData> listOfBanks){
+    public BanksDataAdapter(ArrayList<BanksData> listOfBanks){
         this.banksList = listOfBanks;
     }
 

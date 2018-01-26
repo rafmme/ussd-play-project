@@ -1,9 +1,7 @@
 package com.farayolatimileyin.banksussdcode;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -13,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,7 +21,7 @@ public class HomeActivity extends AppCompatActivity {
     @BindView(R.id.rv_banks) RecyclerView rv_banks;
     RecyclerView.Adapter mAdapter;
     public static Activity activity;
-    private List<BanksData> banksDataList;
+    ArrayList<BanksData> banksDataList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,17 +29,19 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        populateListOfBanks();
         activity = this;
         ButterKnife.bind(this);
         rv_banks.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
         rv_banks.setItemAnimator(new DefaultItemAnimator());
-        mAdapter = new BanksDataAdapter();
+        rv_banks.setHasFixedSize(true);
+        mAdapter = new BanksDataAdapter(banksDataList);
         rv_banks.setAdapter(mAdapter);
 
     }
 
-    public void populateListofBanks(){
-        banksDataList.add(new BanksData(""));
+    public void populateListOfBanks(){
+        banksDataList.add(new BanksData("hhh","der","shf"));
     }
 
     @Override

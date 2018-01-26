@@ -1,2 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string-array name="bankNamesArray">
+        <item>@string/access</item>
+        <item>@string/diamond</item>
+        <item>@string/eco</item>
+        <item>@string/fcmb</item>
+        <item>@string/fidelity</item>
+        <item>@string/first</item>
+        <item>@string/gtb</item>
+        <item>@string/heritage</item>
+        <item>@string/keystone</item>
+        <item>@string/skye</item>
+        <item>@string/stanbic</item>
+        <item>@string/sterling</item>
+        <item>@string/uba</item>
+        <item>@string/union</item>
+        <item>@string/unity</item>
+        <item>@string/wema</item>
+        <item>@string/zenith</item>
+    </string-array>
+
+
+    <string-array name="bankImageNamesArray">
+        <item>@string/access_image</item>
+        <item>@string/diamond_image</item>
+        <item>@string/eco_image</item>
+        <item>@string/fcmb_image</item>
+        <item>@string/fidelity_image</item>
+        <item>@string/first_image</item>
+        <item>@string/gtb_image</item>
+        <item>@string/heritage_image</item>
+        <item>@string/keystone_image</item>
+        <item>@string/skye_image</item>
+        <item>@string/stanbic_image</item>
+        <item>@string/sterling_image</item>
+        <item>@string/uba_image</item>
+        <item>@string/union_image</item>
+        <item>@string/unity_image</item>
+        <item>@string/wema_image</item>
+        <item>@string/zenith_image</item>
+    </string-array>
+
+
+    <string-array name="bankUssdCodeArray">
+        <item>@string/access_ussd</item>
+        <item>@string/diamond_ussd</item>
+        <item>@string/eco_ussd</item>
+        <item>@string/fcmb_ussd</item>
+        <item>@string/fidelity_ussd</item>
+        <item>@string/first_ussd</item>
+        <item>@string/gtb_ussd</item>
+        <item>@string/heritage_ussd</item>
+        <item>@string/keystone_ussd</item>
+        <item>@string/skye_ussd</item>
+        <item>@string/stanbic_ussd</item>
+        <item>@string/sterling_ussd</item>
+        <item>@string/uba_ussd</item>
+        <item>@string/union_ussd</item>
+        <item>@string/unity_ussd</item>
+        <item>@string/wema_ussd</item>
+        <item>@string/zenith_ussd</item>
+    </string-array>
+</resources>
