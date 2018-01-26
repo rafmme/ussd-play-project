@@ -1,6 +1,5 @@
 package com.farayolatimileyin.banksussdcode;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -13,15 +12,14 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class HomeActivity extends AppCompatActivity {
 
-    @BindView(R.id.rv_banks) RecyclerView rv_banks;
+    RecyclerView rv_banks;
     RecyclerView.Adapter mAdapter;
-    public static Activity activity;
-    ArrayList<BanksData> banksDataList;
+    ArrayList<BanksData> banksDataList = new ArrayList<>();;
+    String[] bankNames;
+    String[] bankImageNames;
+    String[] bankUssdCodes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +28,23 @@ public class HomeActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         populateListOfBanks();
-        activity = this;
-        ButterKnife.bind(this);
+        rv_banks = (RecyclerView) findViewById(R.id.rv_banks);
         rv_banks.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
         rv_banks.setItemAnimator(new DefaultItemAnimator());
         rv_banks.setHasFixedSize(true);
-        mAdapter = new BanksDataAdapter(banksDataList);
+        mAdapter = new BanksDataAdapter(this, banksDataList);
         rv_banks.setAdapter(mAdapter);
 
     }
 
     public void populateListOfBanks(){
-        banksDataList.add(new BanksData("hhh","der","shf"));
+        bankNames = getResources().getStringArray(R.array.bankNamesArray);
+        bankImageNames = getResources().getStringArray(R.array.bankImageNamesArray);
+        bankUssdCodes = getResources().getStringArray(R.array.bankUssdCodeArray);
+        for(int i = 0; i<bankNames.length; i++){
+            BanksData banksData = new BanksData(bankNames[i],bankImageNames[i],bankUssdCodes[i]);
+            banksDataList.add(banksData);
+        }
     }
 
     @Override

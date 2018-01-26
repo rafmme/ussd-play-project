@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by FARAYOLA-FBTS on 26/01/2018.
@@ -21,9 +19,11 @@ import butterknife.ButterKnife;
 public class BanksDataAdapter extends RecyclerView.Adapter<BanksDataAdapter.BanksViewHolder> {
 
     private ArrayList<BanksData> banksList;
+    private Context mContext;
 
-    public BanksDataAdapter(ArrayList<BanksData> listOfBanks){
+    public BanksDataAdapter(Context context, ArrayList<BanksData> listOfBanks){
         this.banksList = listOfBanks;
+        this.mContext = context;
     }
 
     @Override
@@ -32,8 +32,7 @@ public class BanksDataAdapter extends RecyclerView.Adapter<BanksDataAdapter.Bank
         return new BanksViewHolder(itemView);
     }
 
-    public Drawable getDrawable(String imageName){
-        Context context = HomeActivity.activity;
+    public Drawable getDrawable(Context context, String imageName){
         int resourceId = context.getResources().getIdentifier(imageName,"drawable",context.getPackageName());
         return context.getResources().getDrawable(resourceId);
     }
@@ -42,7 +41,7 @@ public class BanksDataAdapter extends RecyclerView.Adapter<BanksDataAdapter.Bank
     public void onBindViewHolder(BanksViewHolder holder, int position) {
         BanksData bankData = banksList.get(position);
         holder.bankName.setText(bankData.getBankName());
-        holder.bankImage.setImageDrawable(getDrawable(bankData.getBankIcon()));
+        holder.bankImage.setImageDrawable(getDrawable(mContext,bankData.getBankIcon()));
         holder.bankUssd.setText(bankData.getBankUssdCode());
     }
 
@@ -52,12 +51,14 @@ public class BanksDataAdapter extends RecyclerView.Adapter<BanksDataAdapter.Bank
     }
 
     public class BanksViewHolder extends RecyclerView.ViewHolder{
-        @BindView(R.id.bank_name) TextView bankName;
-        @BindView(R.id.bank_image) ImageView bankImage;
-        @BindView(R.id.bank_ussd) TextView bankUssd;
+        TextView bankName;
+        ImageView bankImage;
+        TextView bankUssd;
         public BanksViewHolder(View view){
             super(view);
-            ButterKnife.bind(HomeActivity.activity);
+            bankName = (TextView) view.findViewById(R.id.bank_name);
+            bankImage = (ImageView) view.findViewById(R.id.bank_image);
+            bankUssd = (TextView) view.findViewById(R.id.bank_ussd);
         }
 
     }
