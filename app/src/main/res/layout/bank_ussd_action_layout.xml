@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="6dp"
+    android:clickable="true"
+    android:layout_margin="5dp">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:weightSum="1">
 
@@ -20,15 +31,16 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_gravity="center"
         android:layout_weight="0.93">
 
         <TextView
             android:text="Action"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:id="@+id/action_name" />
+            android:id="@+id/action_name"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:textSize="20sp" />
 
         <TextView
             android:text="ussd for action"
@@ -38,3 +50,5 @@
             android:id="@+id/action_ussd" />
     </LinearLayout>
 </LinearLayout>
+
+</android.support.v7.widget.CardView>
