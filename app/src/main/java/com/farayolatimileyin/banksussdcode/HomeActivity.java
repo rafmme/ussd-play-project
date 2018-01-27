@@ -22,6 +22,8 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
     ArrayList<BanksData> banksDataList = new ArrayList<>();
     String[] bankNames;
     String[] bankImageNames;
+    BankUssdData bankUssdData;
+    ArrayList<BankUssdData> bankUssdDataList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +58,59 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
     @Override
     public void onGridItemClickListener(int clickedItemIndex) {
         Intent intent = new Intent(HomeActivity.this,BankActionActivity.class);
+        setBank(banksDataList.get(clickedItemIndex).getBankIcon());
         intent.putExtra("bankName",banksDataList.get(clickedItemIndex).getBankName());
         intent.putExtra("bankImageName",banksDataList.get(clickedItemIndex).getBankIcon());
+
+        intent.putParcelableArrayListExtra("hg",bankUssdDataList);
+
         startActivity(intent);
         overridePendingTransition(android.R.anim.slide_out_right, android.R.anim.slide_in_left);
+    }
+
+    public void setBank(String bank){
+        switch (bank){
+            case "accessbank":
+                String[] arrayOfActions = getResources().getStringArray(R.array.arrayOfAccessBankAction);
+                String[] arrayOfUssdCodes = getResources().getStringArray(R.array.arrayOfAccessBankUssd);
+                bankUssdDataList = new ArrayList<>();
+                for (int i = 0; i < arrayOfActions.length; i++){
+                    bankUssdDataList.add(new BankUssdData(bank,arrayOfActions[i],arrayOfUssdCodes[i]));
+                }
+                break;
+            case "diamondbank":
+                break;
+            case "ecobank":
+                break;
+            case "fcmbbank":
+                break;
+            case "fidelitybank":
+                break;
+            case "firstbank":
+                break;
+            case "gtbank":
+                break;
+            case "heritagebank":
+                break;
+            case "keystonebank":
+                break;
+            case "skyebank":
+                break;
+            case "stanbicibtcbank":
+                break;
+            case "sterlingbank":
+                break;
+            case "ubabank":
+                break;
+            case "unionbank":
+                break;
+            case "unitybank":
+                break;
+            case "wemabank":
+                break;
+            case "zenithbank":
+                break;
+        }
     }
 
     @Override
