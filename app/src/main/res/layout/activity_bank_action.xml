@@ -20,7 +20,7 @@
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="418dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/rv_bank_action"
