@@ -55,7 +55,6 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
 
     @Override
     public void onGridItemClickListener(int clickedItemIndex) {
-        Toast.makeText(HomeActivity.this,banksDataList.get(clickedItemIndex).toString(),Toast.LENGTH_LONG).show();
         Intent intent = new Intent(HomeActivity.this,BankActionActivity.class);
         intent.putExtra("bankName",banksDataList.get(clickedItemIndex).getBankName());
         intent.putExtra("bankImageName",banksDataList.get(clickedItemIndex).getBankIcon());
