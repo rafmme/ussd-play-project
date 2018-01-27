@@ -18,7 +18,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
     @BindView(R.id.bank_icon) ImageView bankImage;
     RecyclerView rv_action;
     RecyclerView.Adapter actionAdapter;
-    ArrayList<BankUssdData> actionList;
+    ArrayList<BankUssdData> actionList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
