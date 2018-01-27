@@ -72,41 +72,58 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
                 String[] arrayOfActions = getResources().getStringArray(R.array.arrayOfAccessBankAction);
                 String[] arrayOfUssdCodes = getResources().getStringArray(R.array.arrayOfAccessBankUssd);
                 bankUssdDataList = new ArrayList<>();
+                bankUssdDataList.clear();
                 for (int i = 0; i < arrayOfActions.length; i++){
                     bankUssdDataList.add(new BankUssdData(bank,arrayOfActions[i],arrayOfUssdCodes[i]));
                 }
                 break;
             case "diamondbank":
+                bankUssdDataList.clear();
                 break;
             case "ecobank":
+                bankUssdDataList.clear();
                 break;
             case "fcmbbank":
+                bankUssdDataList.clear();
                 break;
             case "fidelitybank":
+                bankUssdDataList.clear();
                 break;
             case "firstbank":
+                bankUssdDataList.clear();
                 break;
             case "gtbank":
+                bankUssdDataList.clear();
                 break;
             case "heritagebank":
+                bankUssdDataList.clear();
                 break;
             case "keystonebank":
+                bankUssdDataList.clear();
                 break;
             case "skyebank":
+                bankUssdDataList.clear();
                 break;
             case "stanbicibtcbank":
+                bankUssdDataList.clear();
                 break;
             case "sterlingbank":
+                bankUssdDataList.clear();
                 break;
             case "ubabank":
+                bankUssdDataList.clear();
                 break;
             case "unionbank":
+                bankUssdDataList.clear();
                 break;
             case "unitybank":
+                bankUssdDataList.clear();
                 break;
             case "wemabank":
+                bankUssdDataList.clear();
                 break;
             case "zenithbank":
+                bankUssdDataList.clear();
                 break;
         }
     }
