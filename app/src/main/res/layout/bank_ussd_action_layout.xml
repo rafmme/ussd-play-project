@@ -11,7 +11,7 @@
         android:layout_height="30dp"
         app:srcCompat="@drawable/gtbank"
         android:layout_margin="10dp"
-        android:id="@+id/imageView" />
+        android:id="@+id/b_icon" />
 
     <LinearLayout
         android:orientation="vertical"
