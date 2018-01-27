@@ -41,24 +41,4 @@
         <item>@string/zenith_image</item>
     </string-array>
 
-
-    <string-array name="bankUssdCodeArray">
-        <item>@string/access_ussd</item>
-        <item>@string/diamond_ussd</item>
-        <item>@string/eco_ussd</item>
-        <item>@string/fcmb_ussd</item>
-        <item>@string/fidelity_ussd</item>
-        <item>@string/first_ussd</item>
-        <item>@string/gtb_ussd</item>
-        <item>@string/heritage_ussd</item>
-        <item>@string/keystone_ussd</item>
-        <item>@string/skye_ussd</item>
-        <item>@string/stanbic_ussd</item>
-        <item>@string/sterling_ussd</item>
-        <item>@string/uba_ussd</item>
-        <item>@string/union_ussd</item>
-        <item>@string/unity_ussd</item>
-        <item>@string/wema_ussd</item>
-        <item>@string/zenith_ussd</item>
-    </string-array>
 </resources>

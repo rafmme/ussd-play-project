@@ -38,21 +38,4 @@
     <string name="wema_image">wemabank</string>
     <string name="zenith_image">zenithbank</string>
 
-    <string name="access_ussd">*901</string>
-    <string name="diamond_ussd">*710</string>
-    <string name="eco_ussd">*326</string>
-    <string name="fcmb_ussd">*389*214</string>
-    <string name="fidelity_ussd">*770</string>
-    <string name="first_ussd">*894</string>
-    <string name="gtb_ussd">*737</string>
-    <string name="heritage_ussd">*322*030</string>
-    <string name="keystone_ussd">*322*082</string>
-    <string name="skye_ussd">*833</string>
-    <string name="stanbic_ussd">*909</string>
-    <string name="sterling_ussd">*822</string>
-    <string name="uba_ussd">*919</string>
-    <string name="union_ussd">*389*032</string>
-    <string name="unity_ussd">*389*215</string>
-    <string name="wema_ussd">*945</string>
-    <string name="zenith_ussd">*966</string>
 </resources>
