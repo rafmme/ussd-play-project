@@ -61,9 +61,7 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
         setBank(banksDataList.get(clickedItemIndex).getBankIcon());
         intent.putExtra("bankName",banksDataList.get(clickedItemIndex).getBankName());
         intent.putExtra("bankImageName",banksDataList.get(clickedItemIndex).getBankIcon());
-
-        intent.putParcelableArrayListExtra("hg",bankUssdDataList);
-
+        intent.putParcelableArrayListExtra("bankussdlist",bankUssdDataList);
         startActivity(intent);
         overridePendingTransition(android.R.anim.slide_out_right, android.R.anim.slide_in_left);
     }
