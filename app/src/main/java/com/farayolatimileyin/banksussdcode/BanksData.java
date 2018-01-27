@@ -7,12 +7,10 @@ package com.farayolatimileyin.banksussdcode;
 public class BanksData {
     private String bankName;
     private String bankIcon;
-    private String bankUssdCode;
 
-    public BanksData(String bankName,String bankIcon, String bankUssdCode){
+    public BanksData(String bankName,String bankIcon){
         this.bankIcon = bankIcon;
         this.bankName = bankName;
-        this.bankUssdCode = bankUssdCode;
     }
 
     public String getBankIcon() {
@@ -23,12 +21,9 @@ public class BanksData {
         return bankName;
     }
 
-    public String getBankUssdCode() {
-        return bankUssdCode;
-    }
 
     @Override
     public String toString() {
-        return bankIcon+":"+bankName+":"+bankUssdCode;
+        return bankIcon;
     }
 }

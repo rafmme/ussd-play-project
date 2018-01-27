@@ -7,6 +7,7 @@
     android:layout_width="wrap_content"
     android:layout_height="120dp"
     card_view:cardCornerRadius="6dp"
+    android:clickable="true"
     android:layout_margin="5dp">
 
     <LinearLayout
@@ -34,15 +35,6 @@
             android:textSize="15sp"
             android:layout_margin="5dp"
             android:layout_weight="0.27" />
-
-        <TextView
-            android:text="USSD CODE"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/bank_ussd"
-            android:layout_weight="0.27"
-            android:gravity="center"
-            android:visibility="gone" />
 
 
     </LinearLayout>

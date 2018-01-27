@@ -1,7 +1,6 @@
 package com.farayolatimileyin.banksussdcode;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,17 +33,12 @@ public class BanksDataAdapter extends RecyclerView.Adapter<BanksDataAdapter.Bank
         return new BanksViewHolder(itemView);
     }
 
-    public Drawable getDrawable(Context context, String imageName){
-        int resourceId = context.getResources().getIdentifier(imageName,"drawable",context.getPackageName());
-        return context.getResources().getDrawable(resourceId);
-    }
 
     @Override
     public void onBindViewHolder(BanksViewHolder holder, int position) {
         BanksData bankData = banksList.get(position);
         holder.bankName.setText(bankData.getBankName());
-        holder.bankImage.setImageDrawable(getDrawable(mContext,bankData.getBankIcon()));
-        holder.bankUssd.setText(bankData.getBankUssdCode());
+        holder.bankImage.setImageDrawable(HomeActivity.getDrawable(mContext,bankData.getBankIcon()));
     }
 
     @Override
@@ -59,12 +53,10 @@ public class BanksDataAdapter extends RecyclerView.Adapter<BanksDataAdapter.Bank
     public class BanksViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView bankName;
         ImageView bankImage;
-        TextView bankUssd;
         public BanksViewHolder(View view){
             super(view);
             bankName = (TextView) view.findViewById(R.id.bank_name);
             bankImage = (ImageView) view.findViewById(R.id.bank_image);
-            bankUssd = (TextView) view.findViewById(R.id.bank_ussd);
             view.setOnClickListener(this);
         }
 

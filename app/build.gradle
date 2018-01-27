@@ -27,7 +27,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:+'
     compile 'com.android.support:cardview-v7:+'
     compile 'com.android.support:support-v4:+'
-    compile 'com.jakewharton:butterknife:+'
+    compile 'com.jakewharton:butterknife:8.8.1'
     compile 'com.android.support:support-compat:+'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:+'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

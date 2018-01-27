@@ -1,5 +1,8 @@
 package com.farayolatimileyin.banksussdcode;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -19,7 +22,6 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
     ArrayList<BanksData> banksDataList = new ArrayList<>();
     String[] bankNames;
     String[] bankImageNames;
-    String[] bankUssdCodes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,16 +42,25 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
     public void populateListOfBanks(){
         bankNames = getResources().getStringArray(R.array.bankNamesArray);
         bankImageNames = getResources().getStringArray(R.array.bankImageNamesArray);
-        bankUssdCodes = getResources().getStringArray(R.array.bankUssdCodeArray);
         for(int i = 0; i<bankNames.length; i++){
-            BanksData banksData = new BanksData(bankNames[i],bankImageNames[i],bankUssdCodes[i]);
+            BanksData banksData = new BanksData(bankNames[i],bankImageNames[i]);
             banksDataList.add(banksData);
         }
+    }
+
+    public static Drawable getDrawable(Context context, String imageName){
+        int resourceId = context.getResources().getIdentifier(imageName,"drawable",context.getPackageName());
+        return context.getResources().getDrawable(resourceId);
     }
 
     @Override
     public void onGridItemClickListener(int clickedItemIndex) {
         Toast.makeText(HomeActivity.this,banksDataList.get(clickedItemIndex).toString(),Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(HomeActivity.this,BankActionActivity.class);
+        intent.putExtra("bankName",banksDataList.get(clickedItemIndex).getBankName());
+        intent.putExtra("bankImageName",banksDataList.get(clickedItemIndex).getBankIcon());
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.slide_out_right, android.R.anim.slide_in_left);
     }
 
     @Override
