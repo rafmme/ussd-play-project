@@ -2,8 +2,8 @@
 <resources>
     <string name="access_action">General USSD Code</string>
     <string name="access_action1">For new users</string>
-    <string name="access_action2">To buy airtime for your registered phone number</string>
-    <string name="access_action3">To recharge airtime for other phone numbers</string>
+    <string name="access_action2">Buy airtime for self</string>
+    <string name="access_action3">Buy airtime for others</string>
     <string name="access_action4">Transfer money to an Access Bank account</string>
     <string name="access_action5">Transfer money to other bank accounts</string>
     <string name="access_action6">General bill payment transactions [DSTV subscriptions and Smile / Swift internet charges]</string>
