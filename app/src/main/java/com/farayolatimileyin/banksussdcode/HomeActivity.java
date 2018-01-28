@@ -69,13 +69,7 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
     public void setBank(String bank){
         switch (bank){
             case "accessbank":
-                String[] arrayOfActions = getResources().getStringArray(R.array.arrayOfAccessBankAction);
-                String[] arrayOfUssdCodes = getResources().getStringArray(R.array.arrayOfAccessBankUssd);
-                bankUssdDataList = new ArrayList<>();
-                bankUssdDataList.clear();
-                for (int i = 0; i < arrayOfActions.length; i++){
-                    bankUssdDataList.add(new BankUssdData(bank,arrayOfActions[i],arrayOfUssdCodes[i]));
-                }
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfAccessBankAction), getResources().getStringArray(R.array.arrayOfAccessBankUssd));
                 break;
             case "diamondbank":
                 bankUssdDataList.clear();
@@ -125,6 +119,14 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
             case "zenithbank":
                 bankUssdDataList.clear();
                 break;
+        }
+    }
+
+    public void populateBankUssdList(String bank, String[] arrayOfActions, String[] arrayOfUssdCodes){
+        bankUssdDataList = new ArrayList<>();
+        bankUssdDataList.clear();
+        for (int i = 0; i < arrayOfActions.length; i++){
+            bankUssdDataList.add(new BankUssdData(bank,arrayOfActions[i],arrayOfUssdCodes[i]));
         }
     }
 
