@@ -18,8 +18,8 @@
     android:weightSum="1">
 
     <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         app:srcCompat="@drawable/gtbank"
         android:layout_margin="10dp"
         android:id="@+id/b_icon" />
@@ -40,7 +40,7 @@
             android:id="@+id/action_name"
             android:textStyle="bold"
             android:layout_marginTop="5dp"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:text="ussd for action"
