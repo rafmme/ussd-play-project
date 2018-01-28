@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="access_action">General USSD Code</string>
     <string name="access_action1">For new users</string>
     <string name="access_action2">To buy airtime for your registered phone number</string>
     <string name="access_action3">To recharge airtime for other phone numbers</string>
@@ -8,6 +9,7 @@
     <string name="access_action6">General bill payment transactions [DSTV subscriptions and Smile / Swift internet charges]</string>
     <string name="access_action7">Check your Access Bank account number </string>
 
+    <string name="access_ussd">*901#</string>
     <string name="access_ussd1">*901*0#</string>
     <string name="access_ussd2">*901*</string>
     <string name="access_ussd3">*901*</string>
@@ -17,6 +19,7 @@
     <string name="access_ussd7">*901*5# </string>
 
     <string-array name="arrayOfAccessBankAction">
+        <item>@string/access_action</item>
         <item>@string/access_action1</item>
         <item>@string/access_action2</item>
         <item>@string/access_action3</item>
@@ -27,6 +30,7 @@
     </string-array>
 
     <string-array name="arrayOfAccessBankUssd">
+        <item>@string/access_ussd</item>
         <item>@string/access_ussd1</item>
         <item>@string/access_ussd2</item>
         <item>@string/access_ussd3</item>
