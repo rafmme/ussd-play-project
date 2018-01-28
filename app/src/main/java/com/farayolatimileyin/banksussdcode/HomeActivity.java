@@ -87,7 +87,7 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
                 bankUssdDataList.clear();
                 break;
             case "gtbank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfGTBankAction),getResources().getStringArray(R.array.arrayOfGTBankUssd));
                 break;
             case "heritagebank":
                 bankUssdDataList.clear();
