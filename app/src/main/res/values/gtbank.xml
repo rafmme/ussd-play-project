@@ -1,2 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="gt_action">General USSD Code</string>
+    <string name="gt_action1">Buy Airtime for self</string>
+    <string name="gt_action2">Buy Airtime for others</string>
+    <string name="gt_action3">Transfer money to a GTBank account</string>
+    <string name="gt_action4">Transfer money to other bank accounts</string>
+    <string name="gt_action5">Open a GTEasySavers [For Etisalat subscribers]</string>
+
+    <string name="gt_ussd">*737#</string>
+    <string name="gt_ussd1">*737*</string>
+    <string name="gt_ussd2">*737*</string>
+    <string name="gt_ussd3">*737*1*</string>
+    <string name="gt_ussd4">*737*2*</string>
+    <string name="gt_ussd5">*737*0#</string>
+
+    <string-array name="arrayOfGTBankAction">
+        <item>@string/gt_action</item>
+        <item>@string/gt_action1</item>
+        <item>@string/gt_action2</item>
+        <item>@string/gt_action3</item>
+        <item>@string/gt_action4</item>
+        <item>@string/gt_action5</item>
+    </string-array>
+
+    <string-array name="arrayOfGTBankUssd">
+        <item>@string/gt_ussd</item>
+        <item>@string/gt_ussd1</item>
+        <item>@string/gt_ussd2</item>
+        <item>@string/gt_ussd3</item>
+        <item>@string/gt_ussd4</item>
+        <item>@string/gt_ussd5</item>
+    </string-array>
+</resources>
