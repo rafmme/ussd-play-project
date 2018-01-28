@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gt_action">General USSD Code</string>
-    <string name="gt_action1">Buy Airtime for self</string>
-    <string name="gt_action2">Buy Airtime for others</string>
+    <string name="gt_action1">Buy airtime for self</string>
+    <string name="gt_action2">Buy airtime for others</string>
     <string name="gt_action3">Transfer money to a GTBank account</string>
-    <string name="gt_action4">Transfer money to other bank accounts</string>
+    <string name="gt_action4">Transfer money to other banks</string>
     <string name="gt_action5">Open a GTEasySavers [For Etisalat subscribers]</string>
 
     <string name="gt_ussd">*737#</string>

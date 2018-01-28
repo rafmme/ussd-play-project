@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="db_action1">General USSD code</string>
+    <string name="db_action2">Buy airtime for self</string>
+    <string name="db_action3">Buy airtime for others</string>
+    <string name="db_action4">Balance enquiry</string>
+    <string name="db_action5">Pin Change</string>
+    <string name="db_action6">Transfer money to a Diamond Bank account</string>
+    <string name="db_action7">Transfer money to other banks</string>
+
+    <string name="db_ussd1">*426#</string>
+    <string name="db_ussd2">*426*</string>
+    <string name="db_ussd3">*426*</string>
+    <string name="db_ussd4">*426*00#</string>
+    <string name="db_ussd5">*426*0#</string>
+    <string name="db_ussd6">*426*</string>
+    <string name="db_ussd7">*426*</string>
+
+    <string-array name="arrayOfDiamondBankUssd">
+        <item>@string/db_ussd1</item>
+        <item>@string/db_ussd2</item>
+        <item>@string/db_ussd3</item>
+        <item>@string/db_ussd4</item>
+        <item>@string/db_ussd5</item>
+        <item>@string/db_ussd6</item>
+        <item>@string/db_ussd7</item>
+    </string-array>
+    <string-array name="arrayOfDiamondBankAction">
+        <item>@string/db_action1</item>
+        <item>@string/db_action2</item>
+        <item>@string/db_action3</item>
+        <item>@string/db_action4</item>
+        <item>@string/db_action5</item>
+        <item>@string/db_action6</item>
+        <item>@string/db_action7</item>
+    </string-array>
+</resources>

@@ -72,7 +72,7 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
                 populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfAccessBankAction), getResources().getStringArray(R.array.arrayOfAccessBankUssd));
                 break;
             case "diamondbank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfDiamondBankAction), getResources().getStringArray(R.array.arrayOfDiamondBankUssd));
                 break;
             case "ecobank":
                 bankUssdDataList.clear();
@@ -105,7 +105,7 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
                 bankUssdDataList.clear();
                 break;
             case "ubabank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfUbaBankAction), getResources().getStringArray(R.array.arrayOfUbaBankUssd));
                 break;
             case "unionbank":
                 bankUssdDataList.clear();
@@ -114,10 +114,10 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
                 bankUssdDataList.clear();
                 break;
             case "wemabank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfWemaBankAction), getResources().getStringArray(R.array.arrayOfWemaBankUssd));
                 break;
             case "zenithbank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfZenithBankAction), getResources().getStringArray(R.array.arrayOfZenithBankUssd));
                 break;
         }
     }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="z_action">General USSD Code</string>
+    <string name="z_action1">Create a new Zenith bank account</string>
+    <string name="z_action2">Buy airtime</string>
+    <string name="z_action3">Transfer money to another account</string>
+    <string name="z_action4">Pay DSTV and PHCN bills</string>
+    <string name="z_action5">Pay other Zenith Billers</string>
+    <string name="z_action6">Update your BVN</string>
+    <string name="z_action7">Check your Zenith Bank account balance</string>
+    <string name="z_action8">Reset your mobile banking</string>
+    <string name="z_action9">Deactivate mobile banking on your phone number</string>
+
+    <string name="z_ussd">*966#</string>
+    <string name="z_ussd1">*966*0#</string>
+    <string name="z_ussd2">*966*</string>
+    <string name="z_ussd3">*966*</string>
+    <string name="z_ussd4">*966*7*</string>
+    <string name="z_ussd5"> *966*6*</string>
+    <string name="z_ussd6">*966*</string>
+    <string name="z_ussd7">*966*00#</string>
+    <string name="z_ussd8">*966*60#</string>
+    <string name="z_ussd9">*966*20*0#</string>
+
+    <string-array name="arrayOfZenithBankAction">
+        <item>@string/z_action</item>
+        <item>@string/z_action1</item>
+        <item>@string/z_action2</item>
+        <item>@string/z_action3</item>
+        <item>@string/z_action4</item>
+        <item>@string/z_action5</item>
+        <item>@string/z_action6</item>
+        <item>@string/z_action7</item>
+        <item>@string/z_action8</item>
+        <item>@string/z_action9</item>
+    </string-array>
+
+    <string-array name="arrayOfZenithBankUssd">
+        <item>@string/z_ussd</item>
+        <item>@string/z_ussd1</item>
+        <item>@string/z_ussd2</item>
+        <item>@string/z_ussd3</item>
+        <item>@string/z_ussd4</item>
+        <item>@string/z_ussd5</item>
+        <item>@string/z_ussd6</item>
+        <item>@string/z_ussd7</item>
+        <item>@string/z_ussd8</item>
+        <item>@string/z_ussd9</item>
+    </string-array>
+</resources>

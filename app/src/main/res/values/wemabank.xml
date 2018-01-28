@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wema_action">General USSD Code</string>
+    <string name="wema_action1">Link your BVN to your account</string>
+    <string name="wema_action2">Buy Airtime for others</string>
+    <string name="wema_action3">Transfer money to another account</string>
+    <string name="wema_action4">Change USSD pin</string>
+    <string name="wema_action5">Account Query Transactions</string>
+    <string name="wema_action6">Cardless Withdrawal</string>
+
+    <string name="wema_ussd">*945#</string>
+    <string name="wema_ussd1">*945*</string>
+    <string name="wema_ussd2">*945*</string>
+    <string name="wema_ussd3">*945*1*</string>
+    <string name="wema_ussd4">*945*00#</string>
+    <string name="wema_ussd5">*945*0#</string>
+    <string name="wema_ussd6">*945*8*</string>
+
+    <string-array name="arrayOfWemaBankAction">
+        <item>@string/wema_action</item>
+        <item>@string/wema_action1</item>
+        <item>@string/wema_action2</item>
+        <item>@string/wema_action3</item>
+        <item>@string/wema_action4</item>
+        <item>@string/wema_action5</item>
+        <item>@string/access_action6</item>
+    </string-array>
+
+    <string-array name="arrayOfWemaBankUssd">
+        <item>@string/wema_ussd</item>
+        <item>@string/wema_ussd1</item>
+        <item>@string/wema_ussd2</item>
+        <item>@string/wema_ussd3</item>
+        <item>@string/wema_ussd4</item>
+        <item>@string/wema_ussd5</item>
+        <item>@string/wema_ussd6</item>
+    </string-array>
+</resources>
