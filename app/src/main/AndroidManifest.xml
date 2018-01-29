@@ -20,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BankActionActivity"></activity>
+        <activity android:name=".BankActionActivity"
+            android:parentActivityName=".HomeActivity"></activity>
     </application>
 
 </manifest>
