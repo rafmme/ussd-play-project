@@ -20,6 +20,7 @@
     <ImageView
         android:layout_width="15dp"
         android:layout_height="15dp"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/gtbank"
         android:layout_margin="10dp"
         android:id="@+id/b_icon" />
