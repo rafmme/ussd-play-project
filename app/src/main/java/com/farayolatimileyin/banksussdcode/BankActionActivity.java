@@ -37,6 +37,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         String bankIconName = intent.getStringExtra("bankImageName");
         actionList = intent.getParcelableArrayListExtra("bankussdlist");
         getSupportActionBar().setTitle(name);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         bankImage.setImageDrawable(HomeActivity.getDrawable(this,bankIconName));
         loadRecylerView();
     }
