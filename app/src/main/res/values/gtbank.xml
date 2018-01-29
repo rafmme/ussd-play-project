@@ -6,6 +6,16 @@
     <string name="gt_action3">Transfer money to a GTBank account</string>
     <string name="gt_action4">Transfer money to other banks</string>
     <string name="gt_action5">Open a GTEasySavers [For Etisalat subscribers]</string>
+    <string name="gt_action6">Cardless Withdrawal</string>
+    <string name="gt_action7">StarTimes Subscription</string>
+    <string name="gt_action8">Electricity bills payment</string>
+    <string name="gt_action9">Swift Network Subscription</string>
+    <string name="gt_action10">Merchant Payment</string>
+    <string name="gt_action11">LCC Toll Payment</string>
+    <string name="gt_action12">Create Transaction PIN</string>
+    <string name="gt_action13">Check Account Details</string>
+    <string name="gt_action14">Self / 3rd Party Data Top Up</string>
+    <string name="gt_action15">Reactivate Your Account</string>
 
     <string name="gt_ussd">*737#</string>
     <string name="gt_ussd1">*737*</string>
@@ -13,6 +23,16 @@
     <string name="gt_ussd3">*737*1*</string>
     <string name="gt_ussd4">*737*2*</string>
     <string name="gt_ussd5">*737*0#</string>
+    <string name="gt_ussd6">*737*3#</string>
+    <string name="gt_ussd7">*737*37*</string>
+    <string name="gt_ussd8">*737*50*</string>
+    <string name="gt_ussd9">*737*50*</string>
+    <string name="gt_ussd10">*737*35*</string>
+    <string name="gt_ussd11">*737*50*</string>
+    <string name="gt_ussd12">*737*5#</string>
+    <string name="gt_ussd13">*737*6*1#</string>
+    <string name="gt_ussd14">*737*4#</string>
+    <string name="gt_ussd15">*737*11#</string>
 
     <string-array name="arrayOfGTBankAction">
         <item>@string/gt_action</item>
@@ -21,6 +41,16 @@
         <item>@string/gt_action3</item>
         <item>@string/gt_action4</item>
         <item>@string/gt_action5</item>
+        <item>@string/gt_action6</item>
+        <item>@string/gt_action7</item>
+        <item>@string/gt_action8</item>
+        <item>@string/gt_action9</item>
+        <item>@string/gt_action10</item>
+        <item>@string/gt_action11</item>
+        <item>@string/gt_action12</item>
+        <item>@string/gt_action13</item>
+        <item>@string/gt_action14</item>
+        <item>@string/gt_action15</item>
     </string-array>
 
     <string-array name="arrayOfGTBankUssd">
@@ -30,5 +60,15 @@
         <item>@string/gt_ussd3</item>
         <item>@string/gt_ussd4</item>
         <item>@string/gt_ussd5</item>
+        <item>@string/gt_ussd6</item>
+        <item>@string/gt_ussd7</item>
+        <item>@string/gt_ussd8</item>
+        <item>@string/gt_ussd9</item>
+        <item>@string/gt_ussd10</item>
+        <item>@string/gt_ussd11</item>
+        <item>@string/gt_ussd12</item>
+        <item>@string/gt_ussd13</item>
+        <item>@string/gt_ussd14</item>
+        <item>@string/gt_ussd15</item>
     </string-array>
 </resources>
