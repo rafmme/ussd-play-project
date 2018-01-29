@@ -75,43 +75,43 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
                 populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfDiamondBankAction), getResources().getStringArray(R.array.arrayOfDiamondBankUssd));
                 break;
             case "ecobank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfEcoBankAction),getResources().getStringArray(R.array.arrayOfEcoBankUssd));
                 break;
             case "fcmbbank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfFcmbBankAction),getResources().getStringArray(R.array.arrayOfFcmbBankUssd));
                 break;
             case "fidelitybank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfFidelityBankAction),getResources().getStringArray(R.array.arrayOfFidelityBankUssd));
                 break;
             case "firstbank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfFirstBankAction),getResources().getStringArray(R.array.arrayOfFirstBankUssd));
                 break;
             case "gtbank":
                 populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfGTBankAction),getResources().getStringArray(R.array.arrayOfGTBankUssd));
                 break;
             case "heritagebank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfHeritageBankAction),getResources().getStringArray(R.array.arrayOfHeritageBankUssd));
                 break;
             case "keystonebank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfKeystoneBankAction),getResources().getStringArray(R.array.arrayOfKeystoneBankUssd));
                 break;
             case "skyebank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfSkyeBankAction),getResources().getStringArray(R.array.arrayOfSkyeBankUssd));
                 break;
             case "stanbicibtcbank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfStanbicIbtcBankAction),getResources().getStringArray(R.array.arrayOfStanbicIbtcBankUssd));
                 break;
             case "sterlingbank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfSterlingBankAction),getResources().getStringArray(R.array.arrayOfSterlingBankUssd));
                 break;
             case "ubabank":
                 populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfUbaBankAction), getResources().getStringArray(R.array.arrayOfUbaBankUssd));
                 break;
             case "unionbank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfUnionBankAction),getResources().getStringArray(R.array.arrayOfUnionBankUssd));
                 break;
             case "unitybank":
-                bankUssdDataList.clear();
+                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfUnityBankAction),getResources().getStringArray(R.array.arrayOfUnityBankUssd));
                 break;
             case "wemabank":
                 populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfWemaBankAction), getResources().getStringArray(R.array.arrayOfWemaBankUssd));

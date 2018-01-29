@@ -8,7 +8,7 @@
     <string name="z_action5">Pay other Zenith Billers</string>
     <string name="z_action6">Update your BVN</string>
     <string name="z_action7">Check your Zenith Bank account balance</string>
-    <string name="z_action8">Reset your mobile banking</string>
+    <string name="z_action8">Reset your mobile banking PIN</string>
     <string name="z_action9">Deactivate mobile banking on your phone number</string>
 
     <string name="z_ussd">*966#</string>

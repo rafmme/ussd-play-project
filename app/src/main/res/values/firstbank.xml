@@ -1,7 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name=""></string>
+    <string name="f_action1">General USSD Code</string>
+    <string name="f_action2">Create a new First Bank account</string>
+    <string name="f_action3">Buy airtime for self</string>
+    <string name="f_action4">Buy airtime for others</string>
+    <string name="f_action5">Transfer money to another account</string>
+    <string name="f_action6">Check your First Bank account balance</string>
+    <string name="f_action7">Reset your mobile banking PIN</string>
+    <string name="f_action8">Get a mini-statement for your account</string>
 
-    <string-array name="arrayOfBankUssd"></string-array>
-    <string-array name="arrayOfBankAction"></string-array>
+    <string name="f_ussd1">*894#</string>
+    <string name="f_ussd2">*894*0#</string>
+    <string name="f_ussd3">*894*</string>
+    <string name="f_ussd4">*894*</string>
+    <string name="f_ussd5">*894*</string>
+    <string name="f_ussd6">*894*00#</string>
+    <string name="f_ussd7">*894*0#</string>
+    <string name="f_ussd8">*894*</string>
+
+    <string-array name="arrayOfFirstBankUssd">
+        <item>@string/f_ussd1</item>
+        <item>@string/f_ussd2</item>
+        <item>@string/f_ussd3</item>
+        <item>@string/f_ussd4</item>
+        <item>@string/f_ussd5</item>
+        <item>@string/f_ussd6</item>
+        <item>@string/f_ussd7</item>
+        <item>@string/f_ussd8</item>
+    </string-array>
+    <string-array name="arrayOfFirstBankAction">
+        <item>@string/f_action1</item>
+        <item>@string/f_action2</item>
+        <item>@string/f_action3</item>
+        <item>@string/f_action4</item>
+        <item>@string/f_action5</item>
+        <item>@string/f_action6</item>
+        <item>@string/f_action7</item>
+        <item>@string/f_action8</item>
+    </string-array>
 </resources>

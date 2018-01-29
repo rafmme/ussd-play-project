@@ -2,10 +2,10 @@
 <resources>
     <string name="wema_action">General USSD Code</string>
     <string name="wema_action1">Link your BVN to your account</string>
-    <string name="wema_action2">Buy Airtime for others</string>
+    <string name="wema_action2">Buy airtime</string>
     <string name="wema_action3">Transfer money to another account</string>
     <string name="wema_action4">Change USSD pin</string>
-    <string name="wema_action5">Account Query Transactions</string>
+    <string name="wema_action5">Check your Access Bank account number</string>
     <string name="wema_action6">Cardless Withdrawal</string>
 
     <string name="wema_ussd">*945#</string>
@@ -23,7 +23,7 @@
         <item>@string/wema_action3</item>
         <item>@string/wema_action4</item>
         <item>@string/wema_action5</item>
-        <item>@string/access_action6</item>
+        <item>@string/wema_action6</item>
     </string-array>
 
     <string-array name="arrayOfWemaBankUssd">

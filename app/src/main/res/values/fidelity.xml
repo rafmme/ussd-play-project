@@ -1,38 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="fid_action">General USSD Code</string>
-    <string name="wema_action1">Link your BVN to your account</string>
-    <string name="wema_action2">Buy Airtime for others</string>
-    <string name="wema_action3">Transfer money to another account</string>
-    <string name="wema_action4">Change USSD pin</string>
-    <string name="wema_action5">Account Query Transactions</string>
-    <string name="wema_action6">Cardless Withdrawal</string>
+    <string name="fid_action1">Buy airtime for self</string>
+    <string name="fid_action2">Buy airtime for others</string>
+    <string name="fid_action3">Transfer money to another account</string>
+    <string name="fid_action4">Bill payments transactions</string>
+    <string name="fid_action5">Check your Fidelity Bank account balance</string>
+    <string name="fid_action6">Update your BVN</string>
+    <string name="fid_action7">Reset your mobile banking PIN</string>
+    <string name="fid_action8">Deactivate mobile banking on your phone number</string>
+    <string name="fid_action9">Block your card</string>
+    <string name="fid_action10">Select between SMS and email alerts</string>
+    <string name="fid_action11">Cardless Withdrawal</string>
 
-    <string name="wema_ussd">*770#</string>
-    <string name="wema_ussd1">*945*</string>
-    <string name="wema_ussd2">*945*</string>
-    <string name="wema_ussd3">*945*1*</string>
-    <string name="wema_ussd4">*945*00#</string>
-    <string name="wema_ussd5">*945*0#</string>
-    <string name="wema_ussd6">*945*8*</string>
+    <string name="fid_ussd">*770#</string>
+    <string name="fid_ussd1">*770*</string>
+    <string name="fid_ussd2">*770*</string>
+    <string name="fid_ussd3">*770*</string>
+    <string name="fid_ussd4">*770*</string>
+    <string name="fid_ussd5">*770*0#</string>
+    <string name="fid_ussd6">*770*02#</string>
+    <string name="fid_ussd7">*770*00#</string>
+    <string name="fid_ussd8">*770*20*0#</string>
+    <string name="fid_ussd9">*770*911#</string>
+    <string name="fid_ussd10">*770*2#</string>
+    <string name="fid_ussd11">*770*8*</string>
 
-    <string-array name="arrayOfWemaBankAction">
-        <item>@string/wema_action</item>
-        <item>@string/wema_action1</item>
-        <item>@string/wema_action2</item>
-        <item>@string/wema_action3</item>
-        <item>@string/wema_action4</item>
-        <item>@string/wema_action5</item>
-        <item>@string/access_action6</item>
+    <string-array name="arrayOfFidelityBankAction">
+        <item>@string/fid_action</item>
+        <item>@string/fid_action1</item>
+        <item>@string/fid_action2</item>
+        <item>@string/fid_action3</item>
+        <item>@string/fid_action4</item>
+        <item>@string/fid_action5</item>
+        <item>@string/fid_action6</item>
+        <item>@string/fid_action7</item>
+        <item>@string/fid_action8</item>
+        <item>@string/fid_action9</item>
+        <item>@string/fid_action10</item>
+        <item>@string/fid_action11</item>
     </string-array>
 
-    <string-array name="arrayOfWemaBankUssd">
-        <item>@string/wema_ussd</item>
-        <item>@string/wema_ussd1</item>
-        <item>@string/wema_ussd2</item>
-        <item>@string/wema_ussd3</item>
-        <item>@string/wema_ussd4</item>
-        <item>@string/wema_ussd5</item>
-        <item>@string/wema_ussd6</item>
+    <string-array name="arrayOfFidelityBankUssd">
+        <item>@string/fid_ussd</item>
+        <item>@string/fid_ussd1</item>
+        <item>@string/fid_ussd2</item>
+        <item>@string/fid_ussd3</item>
+        <item>@string/fid_ussd4</item>
+        <item>@string/fid_ussd5</item>
+        <item>@string/fid_ussd6</item>
+        <item>@string/fid_ussd7</item>
+        <item>@string/fid_ussd8</item>
+        <item>@string/fid_ussd9</item>
+        <item>@string/fid_ussd10</item>
+        <item>@string/fid_ussd11</item>
     </string-array>
 </resources>
