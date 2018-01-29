@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name=""></string>
+    <string name="eco_action1">General USSD Code</string>
 
-    <string-array name="arrayOfBankUssd"></string-array>
-    <string-array name="arrayOfBankAction"></string-array>
+    <string name="eco_ussd1">*326#</string>
+
+    <string-array name="arrayOfEcoBankUssd">
+        <item>@string/eco_ussd1</item>
+    </string-array>
+
+    <string-array name="arrayOfEcoBankAction">
+        <item>@string/eco_action1</item>
+    </string-array>
 </resources>

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name=""></string>
+    <string name="h_action1">General USSD Code</string>
 
-    <string-array name="arrayOfBankUssd"></string-array>
-    <string-array name="arrayOfBankAction"></string-array>
+    <string name="h_ussd1">*322*030#</string>
+
+    <string-array name="arrayOfHeritageBankUssd">
+        <item>@string/h_ussd1</item>
+    </string-array>
+
+    <string-array name="arrayOfHeritageBankAction">
+        <item>@string/h_action1</item>
+    </string-array>
 </resources>

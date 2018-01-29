@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name=""></string>
+    <string name="unity_action1">General USSD Code</string>
+    <string name="unity_ussd1">*389*215#</string>
 
-    <string-array name="arrayOfUnityBankUssd"></string-array>
-    <string-array name="arrayOfUnityBankAction"></string-array>
+    <string-array name="arrayOfUnityBankUssd">
+        <item>@string/unity_ussd1</item>
+    </string-array>
+
+    <string-array name="arrayOfUnityBankAction">
+        <item>@string/unity_action1</item>
+    </string-array>
 </resources>

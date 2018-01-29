@@ -1,7 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name=""></string>
+    <string name="st_action1">General USSD Code</string>
+    <string name="st_action2">Create a new Sterling Bank tier 1 Kia-Kia savings account</string>
+    <string name="st_action3">Register on the USSD Banking platform</string>
+    <string name="st_action4">Buy airtime for self</string>
+    <string name="st_action5">Buy airtime for others</string>
+    <string name="st_action6">Transfer money to a Sterling account</string>
+    <string name="st_action7">Transfer money to other banks</string>
+    <string name="st_action8">Pay DSTV and PHCN bills</string>
+    <string name="st_action9">Pay other Sterling Biller</string>
+    <string name="st_action10">Check your Sterling Bank account</string>
+    <string name="st_action11">Get your Sterling bank account number</string>
+    <string name="st_action12">Reset your mobile banking PIN</string>
 
-    <string-array name="arrayOfBankUssd"></string-array>
-    <string-array name="arrayOfBankAction"></string-array>
+    <string name="st_ussd1">*822#</string>
+    <string name="st_ussd2">*822*7#</string>
+    <string name="st_ussd3">*822*1*</string>
+    <string name="st_ussd4">*822*</string>
+    <string name="st_ussd5">*822*</string>
+    <string name="st_ussd6">*822*4*</string>
+    <string name="st_ussd7">*822*5*</string>
+    <string name="st_ussd8"> *822*7*</string>
+    <string name="st_ussd9">*822*6*</string>
+    <string name="st_ussd10">*822*6#</string>
+    <string name="st_ussd11">*822*8#</string>
+    <string name="st_ussd12">*822#</string>
+
+    <string-array name="arrayOfSterlingBankUssd">
+        <item>@string/st_ussd1</item>
+        <item>@string/st_ussd2</item>
+        <item>@string/st_ussd3</item>
+        <item>@string/st_ussd4</item>
+        <item>@string/st_ussd5</item>
+        <item>@string/st_ussd6</item>
+        <item>@string/st_ussd7</item>
+        <item>@string/st_ussd8</item>
+        <item>@string/st_ussd9</item>
+        <item>@string/st_ussd10</item>
+        <item>@string/st_ussd11</item>
+        <item>@string/st_ussd12</item>
+
+    </string-array>
+
+    <string-array name="arrayOfSterlingBankAction">
+        <item>@string/st_action1</item>
+        <item>@string/st_action2</item>
+        <item>@string/st_action3</item>
+        <item>@string/st_action4</item>
+        <item>@string/st_action5</item>
+        <item>@string/st_action6</item>
+        <item>@string/st_action7</item>
+        <item>@string/st_action8</item>
+        <item>@string/st_action9</item>
+        <item>@string/st_action10</item>
+        <item>@string/st_action11</item>
+        <item>@string/st_action12</item>
+    </string-array>
+
 </resources>

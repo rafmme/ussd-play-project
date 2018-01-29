@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name=""></string>
+    <string name="k_action1">General USSD Code</string>
 
-    <string-array name="arrayOfBankUssd"></string-array>
-    <string-array name="arrayOfBankAction"></string-array>
+    <string name="k_ussd1">*322*082#</string>
+
+    <string-array name="arrayOfKeystoneBankUssd">
+        <item>@string/k_ussd1</item>
+    </string-array>
+
+    <string-array name="arrayOfKeystoneBankAction">
+        <item>@string/k_action1</item>
+    </string-array>
 </resources>

@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name=""></string>
+    <string name="fcmb_action1">General USSD Code</string>
+    <string name="fcmb_ussd1">*389*214#</string>
 
-    <string-array name="arrayOfBankUssd"></string-array>
-    <string-array name="arrayOfBankAction"></string-array>
+    <string-array name="arrayOfFcmbBankUssd">
+        <item>@string/fcmb_ussd1</item>
+    </string-array>
+
+    <string-array name="arrayOfFcmbBankAction">
+        <item>@string/fcmb_action1</item>
+    </string-array>
 </resources>

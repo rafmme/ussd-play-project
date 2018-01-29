@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name=""></string>
+    <string name="stb_action1">General USSD Code</string>
 
-    <string-array name="arrayOfBankUssd"></string-array>
-    <string-array name="arrayOfBankAction"></string-array>
+    <string name="stb_ussd1">*909#</string>
+
+    <string-array name="arrayOfStanbicIbtcBankUssd">
+        <item>@string/stb_ussd1</item>
+    </string-array>
+
+    <string-array name="arrayOfStanbicIbtcBankAction">
+        <item>@string/stb_action1</item>
+    </string-array>
 </resources>
