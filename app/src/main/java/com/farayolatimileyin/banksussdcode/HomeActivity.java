@@ -95,6 +95,9 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
             case "keystonebank":
                 populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfKeystoneBankAction),getResources().getStringArray(R.array.arrayOfKeystoneBankUssd));
                 break;
+            case "quickteller":
+                populateBankUssdList(bank,getResources().getStringArray(R.array.arrayOfQuicktellerBankAction),getResources().getStringArray(R.array.arrayOfQuicktellerBankUssd));
+                break;
             case "skyebank":
                 populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfSkyeBankAction),getResources().getStringArray(R.array.arrayOfSkyeBankUssd));
                 break;

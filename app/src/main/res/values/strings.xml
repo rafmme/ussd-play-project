@@ -11,6 +11,7 @@
     <string name="gtb">GT Bank</string>
     <string name="heritage">Heritage Bank</string>
     <string name="keystone">Keystone Bank</string>
+    <string name="quickteller">Quickteller</string>
     <string name="skye">Skye Bank</string>
     <string name="stanbic">Stanbic IBTC Bank</string>
     <string name="sterling">Sterling Bank</string>
@@ -29,6 +30,7 @@
     <string name="gtb_image">gtbank</string>
     <string name="heritage_image">heritagebank</string>
     <string name="keystone_image">keystonebank</string>
+    <string name="quickteller_image">quickteller</string>
     <string name="skye_image">skyebank</string>
     <string name="stanbic_image">stanbicibtcbank</string>
     <string name="sterling_image">sterlingbank</string>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="q_action">Use Quickteller (for Airtel, MTN, Etisalat subscribers)</string>
+    <string name="q_action1">Use Quickteller (for Glo subscribers)</string>
+
+    <string name="q_ussd">*322#</string>
+    <string name="q_ussd1">*805#</string>
+
+
+    <string-array name="arrayOfQuicktellerBankAction">
+        <item>@string/q_action</item>
+        <item>@string/q_action1</item>
+    </string-array>
+
+    <string-array name="arrayOfQuicktellerBankUssd">
+        <item>@string/q_ussd</item>
+        <item>@string/q_ussd1</item>
+    </string-array>
+</resources>

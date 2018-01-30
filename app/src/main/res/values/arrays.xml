@@ -10,6 +10,7 @@
         <item>@string/gtb</item>
         <item>@string/heritage</item>
         <item>@string/keystone</item>
+        <item>@string/quickteller</item>
         <item>@string/skye</item>
         <item>@string/stanbic</item>
         <item>@string/sterling</item>
@@ -31,6 +32,7 @@
         <item>@string/gtb_image</item>
         <item>@string/heritage_image</item>
         <item>@string/keystone_image</item>
+        <item>@string/quickteller_image</item>
         <item>@string/skye_image</item>
         <item>@string/stanbic_image</item>
         <item>@string/sterling_image</item>
