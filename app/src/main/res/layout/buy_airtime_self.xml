@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/amountOfAirtimeForSelf"
+        android:layout_margin="20dp"
+        android:layout_weight="0.06"
+        android:hint="Amount of Airtime" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/s_airtime_confirmation"
+        android:layout_margin="20dp"
+        android:layout_weight="0.06" />
+
+    <Button
+        android:text="Purchase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:id="@+id/self_airtime_purchase" />
+
+</LinearLayout>
