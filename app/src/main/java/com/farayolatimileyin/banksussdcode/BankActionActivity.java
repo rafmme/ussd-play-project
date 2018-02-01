@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
@@ -55,7 +55,10 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         if (ussdCode.endsWith("#")){
             dial(ussdCode);
         }
-        Toast.makeText(this,ussdCode,Toast.LENGTH_LONG).show();
+
+        else{
+            launchPerformUssdActivityIntent(actionList.get(clickedItemIndex).getActionName(),actionList.get(clickedItemIndex).getUssdCode());
+        }
     }
 
     public void dial(String uCode){
@@ -103,6 +106,26 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
             Toast.makeText(this,"Call Permission not granted",Toast.LENGTH_LONG).show();
         }
 
+    }
+
+    public void launchPerformUssdActivityIntent(String action_name, String ussd){
+        Intent intent;
+        switch (action_name){
+            case "Buy airtime for self":
+                intent = new Intent(BankActionActivity.this,PerformUssdTransactionActivity.class);
+                intent.putExtra("action",action_name);
+                intent.putExtra("ussd",ussd);
+                intent.putExtra("layout",R.layout.buy_airtime_self);
+                startActivity(intent);
+                break;
+            case "Buy airtime for others":
+                intent = new Intent(BankActionActivity.this,PerformUssdTransactionActivity.class);
+                intent.putExtra("action",action_name);
+                intent.putExtra("ussd",ussd);
+                intent.putExtra("layout",R.layout.buy_airtime_others_layout);
+                startActivity(intent);
+                break;
+        }
     }
 
 }
