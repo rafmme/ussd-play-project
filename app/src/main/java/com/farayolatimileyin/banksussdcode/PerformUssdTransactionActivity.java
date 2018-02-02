@@ -12,11 +12,11 @@ public class PerformUssdTransactionActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String action = intent.getStringExtra("action");
         int layoutRid = intent.getIntExtra("layout",R.layout.money_transfer_layout);
-        setRigthView(layoutRid);
+        setRightView(layoutRid);
         getSupportActionBar().setTitle(action);
     }
 
-    public void setRigthView(int layoutId){
+    public void setRightView(int layoutId){
         switch (layoutId){
             case R.layout.buy_airtime_self:
                 buyAirtimeSelf(layoutId);
