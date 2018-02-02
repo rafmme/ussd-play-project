@@ -15,13 +15,6 @@
         android:layout_weight="0.06"
         android:hint="Amount of Airtime" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/s_airtime_confirmation"
-        android:layout_margin="20dp"
-        android:layout_weight="0.06" />
-
     <Button
         android:text="Purchase"
         android:layout_width="match_parent"

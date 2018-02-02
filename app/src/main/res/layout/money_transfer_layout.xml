@@ -37,24 +37,6 @@
             android:layout_marginRight="20dp"
             android:text="Pick account number from contact list" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:text="Send 100 airtime to 080667535?"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/m_action_confirmation" />
-
-        </LinearLayout>
-
         <Button
             android:text="Transfer"
             android:layout_width="match_parent"
