@@ -11,7 +11,27 @@ public class PerformUssdTransactionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         String action = intent.getStringExtra("action");
-        setContentView(intent.getIntExtra("layout",R.layout.money_transfer_layout));
+        int layoutRid = intent.getIntExtra("layout",R.layout.money_transfer_layout);
+        setRigthView(layoutRid);
         getSupportActionBar().setTitle(action);
+    }
+
+    public void setRigthView(int layoutId){
+        switch (layoutId){
+            case R.layout.buy_airtime_self:
+                buyAirtimeSelf(layoutId);
+                break;
+            case R.layout.buy_airtime_others_layout:
+                buyAirtimeOthers(layoutId);
+                break;
+        }
+    }
+
+    public void buyAirtimeSelf(int layoutResId){
+        setContentView(layoutResId);
+    }
+
+    public  void buyAirtimeOthers(int layoutResId){
+        setContentView(layoutResId);
     }
 }
