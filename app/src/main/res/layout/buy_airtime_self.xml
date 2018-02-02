@@ -3,17 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_marginTop="50dp"
     android:weightSum="1">
 
-    <EditText
+
+    <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/amountOfAirtimeForSelf"
+        android:layout_marginTop="46dp"
         android:layout_margin="20dp"
         android:layout_weight="0.06"
-        android:hint="Amount of Airtime" />
+        android:id="@+id/amountOfAirtime" />
 
     <Button
         android:text="Purchase"

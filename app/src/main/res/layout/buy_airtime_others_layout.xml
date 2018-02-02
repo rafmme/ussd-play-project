@@ -10,14 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
+        <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
             android:layout_marginTop="46dp"
-            android:id="@+id/amountOfAirtime"
-            android:hint="Amount of airtime" />
+            android:id="@+id/amountOfAirtime" />
 
         <EditText
             android:layout_width="match_parent"
