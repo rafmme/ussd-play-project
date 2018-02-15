@@ -1,48 +1,91 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+        android:layout_height="match_parent" >
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_margin="20dp"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="46dp"
-            android:id="@+id/amountOfAirtime" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="5dp"
+                app:srcCompat="@drawable/sterlingbank"
+                android:id="@+id/bImage"/>
 
-        <EditText
+        <TextView
+            android:text="TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:layout_marginTop="55dp"
-            android:id="@+id/r_phone_num"
-            android:hint="Receipient PhoneNumber" />
+            android:id="@+id/action_text"
+            android:layout_margin="5dp"
+            android:layout_below="@+id/bImage"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textStyle="normal|bold"
+            android:typeface="monospace"
+            android:textSize="18sp"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/lhlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/action_text"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:layout_marginLeft="2dp"
+                android:id="@+id/r_phone_num"
+                android:layout_alignTop="@+id/air_amount"
+                android:layout_alignRight="@+id/action_text"
+                android:layout_alignEnd="@+id/action_text"
+                android:layout_weight="2"
+                android:maxLines="1"
+                android:hint="Recipient's Phone Number " />
+
+            <Spinner
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:id="@+id/air_amount"
+                android:layout_marginLeft="9dp"
+                android:layout_marginStart="9dp"
+                android:layout_below="@+id/action_text"
+                android:layout_alignLeft="@+id/action_text"
+                android:layout_alignStart="@+id/action_text"
+                android:layout_width="100dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
 
         <Button
-            android:layout_width="match_parent"
+            android:text="Pick Phone number from Phone book"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="38dp"
-            android:id="@+id/btn_load_contact"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="Pick number from contact list" />
+            android:layout_marginTop="20dp"
+            android:id="@+id/pick_contact"
+            android:layout_below="@+id/lhlayout"
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:text="Purchase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:id="@+id/p_button"/>
+            android:layout_centerVertical="false"
+            android:id="@+id/purchase"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
 
-
-    </LinearLayout>
-
-
+    </RelativeLayout>
 </android.support.v7.widget.CardView>

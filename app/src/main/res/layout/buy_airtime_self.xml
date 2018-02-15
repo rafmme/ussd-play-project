@@ -1,25 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="50dp"
-    android:weightSum="1">
+    android:layout_height="match_parent" >
 
-
-    <Spinner
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
-        android:layout_margin="20dp"
-        android:layout_weight="0.06"
-        android:id="@+id/amountOfAirtime" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:text="Purchase"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:id="@+id/self_airtime_purchase" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/sterlingbank"
+            android:id="@+id/bImage"/>
 
-</LinearLayout>
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/action_text"
+            android:layout_margin="5dp"
+            android:layout_below="@+id/bImage"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textStyle="normal|bold"
+            android:typeface="monospace"
+            android:textSize="18sp"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/lhlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/action_text"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp">
+
+
+            <TextView
+                android:text="Amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView"
+                android:layout_weight="1"
+                android:textStyle="normal|bold"
+                android:textSize="24sp" />
+
+            <Spinner
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:id="@+id/air_amount"
+                android:layout_marginLeft="9dp"
+                android:layout_marginStart="9dp"
+                android:layout_below="@+id/action_text"
+                android:layout_alignLeft="@+id/action_text"
+                android:layout_alignStart="@+id/action_text"
+                android:layout_width="100dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <Button
+            android:text="Purchase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="false"
+            android:id="@+id/purchase"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
