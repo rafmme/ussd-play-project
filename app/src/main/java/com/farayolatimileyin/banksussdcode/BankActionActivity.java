@@ -57,7 +57,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         }
 
         else{
-            launchPerformUssdActivityIntent(actionList.get(clickedItemIndex).getActionName(),actionList.get(clickedItemIndex).getUssdCode());
+            launchPerformUssdActivityIntent(actionList.get(clickedItemIndex).getActionName(),actionList.get(clickedItemIndex).getUssdCode(),actionList.get(clickedItemIndex).getBankName());
         }
     }
 
@@ -108,13 +108,24 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
 
     }
 
-    public void launchPerformUssdActivityIntent(String action_name, String ussd){
+    public void launchPerformUssdActivityIntent(String action_name, String ussd, String bImageName){
         Intent intent;
+        if(action_name.startsWith("Transfer money")){
+            intent = new Intent(BankActionActivity.this,PerformUssdTransactionActivity.class);
+            intent.putExtra("action",action_name);
+            intent.putExtra("ussd",ussd);
+            intent.putExtra("bImageName",bImageName);
+            intent.putExtra("layout",R.layout.money_transfer_layout);
+            startActivity(intent);
+            return;
+        }
+
         switch (action_name){
             case "Buy airtime for self":
                 intent = new Intent(BankActionActivity.this,PerformUssdTransactionActivity.class);
                 intent.putExtra("action",action_name);
                 intent.putExtra("ussd",ussd);
+                intent.putExtra("bImageName",bImageName);
                 intent.putExtra("layout",R.layout.buy_airtime_self);
                 startActivity(intent);
                 break;
@@ -122,9 +133,11 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                 intent = new Intent(BankActionActivity.this,PerformUssdTransactionActivity.class);
                 intent.putExtra("action",action_name);
                 intent.putExtra("ussd",ussd);
+                intent.putExtra("bImageName",bImageName);
                 intent.putExtra("layout",R.layout.buy_airtime_others_layout);
                 startActivity(intent);
                 break;
+
         }
     }
 
