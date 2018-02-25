@@ -29,7 +29,7 @@
             android:visibility="invisible" />
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:id="@+id/lhlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,8 +64,9 @@
                 android:layout_below="@+id/action_text"
                 android:layout_alignLeft="@+id/action_text"
                 android:layout_alignStart="@+id/action_text"
-                android:layout_width="100dp"
-                android:layout_weight="1" />
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dialog" />
 
         </LinearLayout>
 

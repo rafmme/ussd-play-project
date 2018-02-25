@@ -45,9 +45,9 @@
             <TextView
                 android:text="Amount"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="114dp"
                 android:id="@+id/textView"
-                android:layout_weight="1"
+                android:layout_weight="0.04"
                 android:textStyle="normal|bold"
                 android:textSize="24sp" />
 
@@ -60,8 +60,9 @@
                 android:layout_below="@+id/action_text"
                 android:layout_alignLeft="@+id/action_text"
                 android:layout_alignStart="@+id/action_text"
-                android:layout_width="100dp"
-                android:layout_weight="1" />
+                android:layout_width="wrap_content"
+                android:layout_weight="0.02"
+                android:spinnerMode="dialog" />
 
         </LinearLayout>
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="holderText">Airtime Amount (₦)</string>
+    <string name="am100">₦ 100</string>
+    <string name="am200">₦ 200</string>
+    <string name="am300">₦ 300</string>
+    <string name="am400">₦ 400</string>
+    <string name="am500">₦ 500</string>
+    <string name="am600">₦ 600</string>
+    <string name="am700">₦ 700</string>
+    <string name="am800">₦ 800</string>
+    <string name="am900">₦ 900</string>
+    <string name="am1000">₦ 1,000</string>
+    <string name="am2000">₦ 2,000</string>
+    <string name="am3000">₦ 3,000</string>
+    <string name="am4000">₦ 4,000</string>
+    <string name="am5000">₦ 5,000</string>
+
+    <string-array name="airtimeAmountArray">
+        <item>@string/am100</item>
+        <item>@string/am200</item>
+        <item>@string/am300</item>
+        <item>@string/am400</item>
+        <item>@string/am500</item>
+        <item>@string/am600</item>
+        <item>@string/am700</item>
+        <item>@string/am800</item>
+        <item>@string/am900</item>
+        <item>@string/am1000</item>
+        <item>@string/am2000</item>
+        <item>@string/am3000</item>
+        <item>@string/am4000</item>
+        <item>@string/am5000</item>
+
+    </string-array>
+</resources>
