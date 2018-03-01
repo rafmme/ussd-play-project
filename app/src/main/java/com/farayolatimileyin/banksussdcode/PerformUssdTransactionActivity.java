@@ -133,7 +133,7 @@ public class PerformUssdTransactionActivity extends AppCompatActivity {
                     receipientPicked(data);
                     break;
                 case N_RESULT_CODE:
-                    receipientPicked(data);
+                    receipientPhoneNumPicked(data);
                     break;
             }
         }
@@ -164,7 +164,7 @@ public class PerformUssdTransactionActivity extends AppCompatActivity {
             if (cursor.moveToFirst()) {
                 int receipientNameIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
                 int receipientPhoneNumIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-                receipientPhoneNumber = cursor.getString(receipientPhoneNumIndex);
+                receipientPhoneNumber = formatPhoneNumber(cursor.getString(receipientPhoneNumIndex));
                 receipientName = cursor.getString(receipientNameIndex);
                 receipient.setText(receipientName+" : "+receipientPhoneNumber);
 
@@ -173,6 +173,36 @@ public class PerformUssdTransactionActivity extends AppCompatActivity {
         catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public String formatPhoneNumber(String rawNumber){
+        String cPN = "";
+        if(rawNumber.startsWith("+234")) {
+            cPN += "0";
+            String[] numArray = rawNumber.substring(4,rawNumber.length()).split("");
+            for(String i : numArray){
+                if((!i.equals("-"))&& (!i.equals(" "))){
+                    cPN += i;
+                }
+            }
+
+        }
+
+        else{
+            if (rawNumber.startsWith("0")) {
+                String[] numArray = rawNumber.split("");
+                for (String i : numArray) {
+                    if ((!i.equals("-")) && (!i.equals(" "))) {
+                        cPN += i;
+                    }
+                }
+            }
+
+            else{
+                cPN = rawNumber;
+            }
+        }
+        return cPN;
     }
 
 }
