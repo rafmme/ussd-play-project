@@ -10,12 +10,14 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -31,9 +33,11 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
     RecyclerView rv_action;
     RecyclerView.Adapter actionAdapter;
     ArrayList<BankUssdData> actionList = new ArrayList<>();
-    String ussdCode,receipientName,receipientAcctNum,receipientPhoneNumber;
+    String ussdCode,receipientName,receipientAcctNum,receipientPhoneNumber,bankName;
+    EditText receipient;
     static final int RESULT_CODE = 7;
     static final int N_RESULT_CODE = 8;
+    View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +45,10 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         setContentView(R.layout.activity_bank_action);
         ButterKnife.bind(this);
         Intent intent = getIntent();
-        String name = intent.getStringExtra("bankName");
+        bankName = intent.getStringExtra("bankName");
         String bankIconName = intent.getStringExtra("bankImageName");
         actionList = intent.getParcelableArrayListExtra("bankussdlist");
-        getSupportActionBar().setTitle(name);
+        getSupportActionBar().setTitle(bankName);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         bankImage.setImageDrawable(HomeActivity.getDrawable(this,bankIconName));
         loadRecylerView();
@@ -65,7 +69,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         }
 
         else{
-            launchPerformUssdActivityIntent(actionList.get(clickedItemIndex).getActionName(),actionList.get(clickedItemIndex).getUssdCode(),actionList.get(clickedItemIndex).getBankName());
+            showPerformUssdDialog(actionList.get(clickedItemIndex).getActionName(),actionList.get(clickedItemIndex).getUssdCode(),bankName);
         }
     }
 
@@ -116,40 +120,36 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
 
     }
 
-    public View makeDialog(int layoutResource){
+    public View makeDialogView(int layoutResource){
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(layoutResource, null);
         return view;
     }
 
-    public void launchPerformUssdActivityIntent(String action_name, String ussd, String bImageName){
-        Intent intent;
+    public void createDialog(View view){
+        AlertDialog.Builder ussdActionDialog = new AlertDialog.Builder(BankActionActivity.this);
+        ussdActionDialog.setView(view);
+        ussdActionDialog.setCancelable(true);
+        AlertDialog ussdDialog = ussdActionDialog.create();
+        ussdDialog.show();
+    }
+
+    public void showPerformUssdDialog(String action_name, String ussd, String bName){
         if(action_name.startsWith("Transfer money")){
-            intent = new Intent(BankActionActivity.this,PerformUssdTransactionActivity.class);
-            intent.putExtra("action",action_name);
-            intent.putExtra("ussd",ussd);
-            intent.putExtra("bImageName",bImageName);
-            intent.putExtra("layout",R.layout.money_transfer_layout);
-            startActivity(intent);
+            view = makeDialogView(R.layout.money_transfer_layout);
+            receipient = (EditText) view.findViewById(R.id.accountNumber);
+            createDialog(view);
             return;
         }
 
         switch (action_name){
             case "Buy airtime for self":
-                intent = new Intent(BankActionActivity.this,PerformUssdTransactionActivity.class);
-                intent.putExtra("action",action_name);
-                intent.putExtra("ussd",ussd);
-                intent.putExtra("bImageName",bImageName);
-                intent.putExtra("layout",R.layout.buy_airtime_self);
-                startActivity(intent);
+                view = makeDialogView(R.layout.buy_airtime_self);
+                populateSpinnerWithAirtimeAmount(view);
+                createDialog(view);
                 break;
             case "Buy airtime for others":
-                intent = new Intent(BankActionActivity.this,PerformUssdTransactionActivity.class);
-                intent.putExtra("action",action_name);
-                intent.putExtra("ussd",ussd);
-                intent.putExtra("bImageName",bImageName);
-                intent.putExtra("layout",R.layout.buy_airtime_others_layout);
-                startActivity(intent);
+                view = makeDialogView(R.layout.buy_airtime_others_layout);
                 break;
 
         }
@@ -161,16 +161,16 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         if(resultCode == RESULT_OK){
             switch (requestCode){
                 case RESULT_CODE:
-                    receipientPicked(data);
+                    receipientPicked(data,view);
                     break;
                 case N_RESULT_CODE:
-                    receipientPhoneNumPicked(data);
+                    receipientPhoneNumPicked(data,view);
                     break;
             }
         }
     }
 
-    public void receipientPicked(Intent data){
+    public void receipientPicked(Intent data, View view){
         try{
             Uri uri = data.getData();
             Cursor cursor = getContentResolver().query(uri,null,null,null,null);
@@ -188,7 +188,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         }
     }
 
-    public void receipientPhoneNumPicked(Intent data){
+    public void receipientPhoneNumPicked(Intent data, View view){
         try{
             Uri uri = data.getData();
             Cursor cursor = getContentResolver().query(uri,null,null,null,null);
@@ -206,9 +206,9 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         }
     }
 
-    public void populateSpinnerWithAirtimeAmount(){
+    public void populateSpinnerWithAirtimeAmount(View view){
         String[] airtimeAmountArray = getResources().getStringArray(R.array.airtimeAmountArray);
-        amountSpinner = (Spinner) findViewById(R.id.air_amount);
+        final Spinner amountSpinner = (Spinner) view.findViewById(R.id.amountSpinner);
         MySpinnerAdapter mySpinnerAdapter = new MySpinnerAdapter(this,android.R.layout.simple_list_item_1);
         mySpinnerAdapter.addAll(airtimeAmountArray);
         mySpinnerAdapter.add(getResources().getString(R.string.holderText));
