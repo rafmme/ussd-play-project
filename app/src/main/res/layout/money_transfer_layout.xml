@@ -4,46 +4,81 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+
+
     <LinearLayout
         android:orientation="vertical"
-        android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
+        <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_height="99dp"
+            android:background="@color/colorPrimaryDark">
+
+            <TextView
+                android:text="TRANSFER MONEY"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/dialogTitleTextForMoneyTransfer"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:text="ACCOUNT NUMBER"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:layout_marginTop="46dp"
-            android:id="@+id/amount"
-            android:hint="Amount in Naira" />
+            android:layout_margin="15dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:id="@+id/textView2" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="15dp"
             android:inputType="number"
             android:ems="10"
-            android:layout_marginTop="55dp"
-            android:id="@+id/account_num"
-            android:hint="Receipient Account Number" />
+            android:id="@+id/accountNumber"
+            android:hint="e.g. 0213567570 " />
 
         <Button
+            android:text="Pick Acct. No. from Phonebook"
+            android:layout_margin="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/pickAcctNumBtn" />
+
+        <TextView
+            android:text="AMOUNT (₦)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:id="@+id/textView3" />
+
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="38dp"
-            android:id="@+id/btn_load_account"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="Pick account number from contact list" />
+            android:layout_margin="15dp"
+            android:inputType="number"
+            android:ems="10"
+            android:hint="e.g. 5000 "
+            android:id="@+id/amount" />
 
         <Button
-            android:text="Transfer"
+            android:text="TRANSFER"
+            android:layout_margin="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:id="@+id/transfer_button"/>
-
+            android:layout_gravity="bottom"
+            android:id="@+id/transferBtn" />
 
     </LinearLayout>
 

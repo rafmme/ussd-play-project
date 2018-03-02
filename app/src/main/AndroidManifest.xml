@@ -24,7 +24,6 @@
             android:name=".BankActionActivity"
             android:parentActivityName=".HomeActivity" />
 
-        <activity android:name=".PerformUssdTransactionActivity"></activity>
     </application>
 
 </manifest>
