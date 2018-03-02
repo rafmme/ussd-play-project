@@ -17,6 +17,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -138,6 +139,13 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         if(action_name.startsWith("Transfer money")){
             view = makeDialogView(R.layout.money_transfer_layout);
             receipient = (EditText) view.findViewById(R.id.accountNumber);
+            Button pickAcctNumFromContactListBtn = (Button) view.findViewById(R.id.pickAcctNumBtn);
+            pickAcctNumFromContactListBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
             createDialog(view);
             return;
         }
@@ -150,6 +158,15 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                 break;
             case "Buy airtime for others":
                 view = makeDialogView(R.layout.buy_airtime_others_layout);
+                populateSpinnerWithAirtimeAmount(view);
+                Button pickPhoneNumFromContactListBtn = (Button) view.findViewById(R.id.pickNumberBtn);
+                pickPhoneNumFromContactListBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+                createDialog(view);
                 break;
 
         }

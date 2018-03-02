@@ -39,10 +39,11 @@
 
 
         <Spinner
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:id="@+id/amountSpinner" />
+            android:id="@+id/amountSpinner"
+            android:spinnerMode="dialog" />
 
         <Button
             android:text="BUY AIRTIME"
