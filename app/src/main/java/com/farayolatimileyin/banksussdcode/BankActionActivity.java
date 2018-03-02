@@ -143,7 +143,8 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
             pickAcctNumFromContactListBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    Intent accountNumberPickerIntent = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
+                    startActivityForResult(accountNumberPickerIntent,RESULT_CODE);
                 }
             });
             createDialog(view);
@@ -158,12 +159,14 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                 break;
             case "Buy airtime for others":
                 view = makeDialogView(R.layout.buy_airtime_others_layout);
+                receipient = (EditText) view.findViewById(R.id.phoneNumber);
                 populateSpinnerWithAirtimeAmount(view);
                 Button pickPhoneNumFromContactListBtn = (Button) view.findViewById(R.id.pickNumberBtn);
                 pickPhoneNumFromContactListBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        Intent phoneNumberPickerIntent = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
+                        startActivityForResult(phoneNumberPickerIntent,N_RESULT_CODE);
                     }
                 });
                 createDialog(view);
