@@ -1,9 +1,15 @@
 package com.farayolatimileyin.banksussdcode;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -17,6 +23,7 @@ import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.GridItemClickListener {
 
+    String ussdCode;
     RecyclerView rv_banks;
     RecyclerView.Adapter mAdapter;
     ArrayList<BanksData> banksDataList = new ArrayList<>();
@@ -24,6 +31,11 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
     String[] bankImageNames;
     BankUssdData bankUssdData;
     ArrayList<BankUssdData> bankUssdDataList;
+
+    public static Drawable getDrawable(Context context, String imageName) {
+        int resourceId = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
+        return context.getResources().getDrawable(resourceId);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,20 +62,64 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
         }
     }
 
-    public static Drawable getDrawable(Context context, String imageName){
-        int resourceId = context.getResources().getIdentifier(imageName,"drawable",context.getPackageName());
-        return context.getResources().getDrawable(resourceId);
-    }
-
     @Override
     public void onGridItemClickListener(int clickedItemIndex) {
-        Intent intent = new Intent(HomeActivity.this,BankActionActivity.class);
-        setBank(banksDataList.get(clickedItemIndex).getBankIcon());
-        intent.putExtra("bankName",banksDataList.get(clickedItemIndex).getBankName());
-        intent.putExtra("bankImageName",banksDataList.get(clickedItemIndex).getBankIcon());
-        intent.putParcelableArrayListExtra("bankussdlist",bankUssdDataList);
-        startActivity(intent);
-        overridePendingTransition(android.R.anim.slide_out_right, android.R.anim.slide_in_left);
+        String bankName = banksDataList.get(clickedItemIndex).getBankName();
+        String bankImageName = banksDataList.get(clickedItemIndex).getBankIcon();
+        checkForBanksWithJustOneAction(bankName, bankImageName);
+    }
+
+    public void checkForBanksWithJustOneAction(String bankName, String bankImageName) {
+        if (bankName.equalsIgnoreCase(getResources().getString(R.string.eco)) || bankName.equalsIgnoreCase(getResources().getString(R.string.fcmb))
+                || bankName.equalsIgnoreCase(getResources().getString(R.string.heritage)) || bankName.equalsIgnoreCase(getResources().getString(R.string.keystone))
+                || bankName.equalsIgnoreCase(getResources().getString(R.string.skye)) || bankName.equalsIgnoreCase(getResources().getString(R.string.stanbic))
+                || bankName.equalsIgnoreCase(getResources().getString(R.string.union)) || bankName.equalsIgnoreCase(getResources().getString(R.string.unity))) {
+
+            switch (bankName) {
+
+                case "Eco Bank":
+                    ussdCode = getResources().getString(R.string.eco_ussd1);
+                    dial(ussdCode);
+                    break;
+                case "FCMB":
+                    ussdCode = getResources().getString(R.string.fcmb_ussd1);
+                    dial(ussdCode);
+                    break;
+                case "Heritage Bank":
+                    ussdCode = getResources().getString(R.string.h_ussd1);
+                    dial(ussdCode);
+                    break;
+                case "Keystone Bank":
+                    ussdCode = getResources().getString(R.string.k_ussd1);
+                    dial(ussdCode);
+                    break;
+                case "Skye Bank":
+                    ussdCode = getResources().getString(R.string.skye_ussd);
+                    dial(ussdCode);
+                    break;
+                case "Stanbic IBTC Bank":
+                    ussdCode = getResources().getString(R.string.stb_ussd1);
+                    dial(ussdCode);
+                    break;
+                case "Union Bank":
+                    ussdCode = getResources().getString(R.string.union_ussd1);
+                    dial(ussdCode);
+                    break;
+                case "Unity Bank":
+                    ussdCode = getResources().getString(R.string.unity_ussd1);
+                    dial(ussdCode);
+                    break;
+
+            }
+        } else {
+            Intent intent = new Intent(HomeActivity.this, BankActionActivity.class);
+            setBank(bankImageName);
+            intent.putExtra("bankName", bankName);
+            intent.putExtra("bankImageName", bankImageName);
+            intent.putParcelableArrayListExtra("bankussdlist", bankUssdDataList);
+            startActivity(intent);
+            overridePendingTransition(android.R.anim.slide_out_right, android.R.anim.slide_in_left);
+        }
     }
 
     public void setBank(String bank){
@@ -74,12 +130,6 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
             case "diamondbank":
                 populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfDiamondBankAction), getResources().getStringArray(R.array.arrayOfDiamondBankUssd));
                 break;
-            case "ecobank":
-                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfEcoBankAction),getResources().getStringArray(R.array.arrayOfEcoBankUssd));
-                break;
-            case "fcmbbank":
-                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfFcmbBankAction),getResources().getStringArray(R.array.arrayOfFcmbBankUssd));
-                break;
             case "fidelitybank":
                 populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfFidelityBankAction),getResources().getStringArray(R.array.arrayOfFidelityBankUssd));
                 break;
@@ -89,32 +139,14 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
             case "gtbank":
                 populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfGTBankAction),getResources().getStringArray(R.array.arrayOfGTBankUssd));
                 break;
-            case "heritagebank":
-                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfHeritageBankAction),getResources().getStringArray(R.array.arrayOfHeritageBankUssd));
-                break;
-            case "keystonebank":
-                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfKeystoneBankAction),getResources().getStringArray(R.array.arrayOfKeystoneBankUssd));
-                break;
             case "quickteller":
                 populateBankUssdList(bank,getResources().getStringArray(R.array.arrayOfQuicktellerBankAction),getResources().getStringArray(R.array.arrayOfQuicktellerBankUssd));
-                break;
-            case "skyebank":
-                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfSkyeBankAction),getResources().getStringArray(R.array.arrayOfSkyeBankUssd));
-                break;
-            case "stanbicibtcbank":
-                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfStanbicIbtcBankAction),getResources().getStringArray(R.array.arrayOfStanbicIbtcBankUssd));
                 break;
             case "sterlingbank":
                 populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfSterlingBankAction),getResources().getStringArray(R.array.arrayOfSterlingBankUssd));
                 break;
             case "ubabank":
                 populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfUbaBankAction), getResources().getStringArray(R.array.arrayOfUbaBankUssd));
-                break;
-            case "unionbank":
-                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfUnionBankAction),getResources().getStringArray(R.array.arrayOfUnionBankUssd));
-                break;
-            case "unitybank":
-                populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfUnityBankAction),getResources().getStringArray(R.array.arrayOfUnityBankUssd));
                 break;
             case "wemabank":
                 populateBankUssdList(bank, getResources().getStringArray(R.array.arrayOfWemaBankAction), getResources().getStringArray(R.array.arrayOfWemaBankUssd));
@@ -159,4 +191,48 @@ public class HomeActivity extends AppCompatActivity implements BanksDataAdapter.
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void dial(String uCode) {
+        String code = Uri.encode(uCode);
+        if (Build.VERSION.SDK_INT < 23) {
+            makeCall(code);
+        } else {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                makeCall(code);
+            } else {
+                final String[] PERMISSION_STORAGE = {Manifest.permission.CALL_PHONE};
+                ActivityCompat.requestPermissions(this, PERMISSION_STORAGE, 9);
+            }
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        boolean permissionGranted = false;
+        String code = Uri.encode(ussdCode);
+        switch (requestCode) {
+            case 9:
+                permissionGranted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                break;
+        }
+        if (permissionGranted) {
+            makeCall(code);
+        } else {
+            Toast.makeText(this, "Call Permission not granted", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void makeCall(String code) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(getApplicationContext(), "button clicked " + code, Toast.LENGTH_LONG).show();
+            Intent dialIntent = new Intent(Intent.ACTION_CALL);
+            dialIntent.setData(Uri.parse("tel:" + code));
+            this.startActivity(dialIntent);
+        } else {
+            Toast.makeText(this, "Call Permission not granted", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
 }
