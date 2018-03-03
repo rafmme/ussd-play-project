@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="union_action1">General USSD Code</string>
-    <string name="union_ussd1">*389*032</string>
+    <string name="union_ussd1">*389*032#</string>
 
     <string-array name="arrayOfUnionBankUssd">
         <item>@string/union_ussd1</item>
