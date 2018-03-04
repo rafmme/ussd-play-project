@@ -214,16 +214,16 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         if(resultCode == RESULT_OK){
             switch (requestCode){
                 case RESULT_CODE:
-                    receipientPicked(data,view);
+                    receipientPicked(data);
                     break;
                 case N_RESULT_CODE:
-                    receipientPhoneNumPicked(data,view);
+                    receipientPhoneNumPicked(data);
                     break;
             }
         }
     }
 
-    public void receipientPicked(Intent data, View view){
+    public void receipientPicked(Intent data){
         try{
             Uri uri = data.getData();
             Cursor cursor = getContentResolver().query(uri,null,null,null,null);
@@ -241,7 +241,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         }
     }
 
-    public void receipientPhoneNumPicked(Intent data, View view){
+    public void receipientPhoneNumPicked(Intent data){
         try{
             Uri uri = data.getData();
             Cursor cursor = getContentResolver().query(uri,null,null,null,null);
