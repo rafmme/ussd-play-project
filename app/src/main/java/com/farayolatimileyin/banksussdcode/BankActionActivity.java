@@ -1,6 +1,7 @@
 package com.farayolatimileyin.banksussdcode;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -34,7 +35,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
     RecyclerView rv_action;
     RecyclerView.Adapter actionAdapter;
     ArrayList<BankUssdData> actionList = new ArrayList<>();
-    String ussdCode,receipientName,receipientAcctNum,receipientPhoneNumber,bankName;
+    String ussdCode,receipientName,receipientAcctNum,receipientPhoneNumber,bankName,amount;
     EditText receipient;
     static final int RESULT_CODE = 7;
     static final int N_RESULT_CODE = 8;
@@ -121,6 +122,30 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
 
     }
 
+    public void performUssdTransaction(String action, String ussd, String amount, String phoneNumber, String acctNumber){
+        String ud = ussd+"*"+amount+"*"+phoneNumber+"#";
+        confirmAction(action,ud);
+    }
+
+    public void confirmAction(String action, final String completeUssdCode){
+        AlertDialog.Builder confirmDialog = new AlertDialog.Builder(BankActionActivity.this);
+        confirmDialog.setCancelable(false);
+        confirmDialog.setTitle("Confirm Action");
+        confirmDialog.setMessage(action);
+        confirmDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dial(completeUssdCode);
+            }
+        });
+        confirmDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                return;
+            }
+        });
+    }
+
     public View makeDialogView(int layoutResource){
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(layoutResource, null);
@@ -135,7 +160,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         ussdDialog.show();
     }
 
-    public void showPerformUssdDialog(String action_name, String ussd, String bName){
+    public void showPerformUssdDialog(final String action_name, final String ussd, /*for headertext in transfer money layout*/String bName){
         if(action_name.startsWith("Transfer money")){
             view = makeDialogView(R.layout.money_transfer_layout);
             receipient = (EditText) view.findViewById(R.id.accountNumber);
@@ -157,6 +182,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                 populateSpinnerWithAirtimeAmount(view);
                 createDialog(view);
                 break;
+            case "Buy Airtime":
             case "Buy airtime for others":
                 view = makeDialogView(R.layout.buy_airtime_others_layout);
                 receipient = (EditText) view.findViewById(R.id.phoneNumber);
@@ -167,6 +193,13 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                     public void onClick(View view) {
                         Intent phoneNumberPickerIntent = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
                         startActivityForResult(phoneNumberPickerIntent,N_RESULT_CODE);
+                    }
+                });
+                Button transferBtn = (Button) view.findViewById(R.id.buyBtn);
+                transferBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        performUssdTransaction(action_name,ussd,amount,receipient.getText().toString(),null);
                     }
                 });
                 createDialog(view);
@@ -239,9 +272,11 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(amountSpinner.getSelectedItem().toString() == "Airtime Amount (₦)"){
                     Toast.makeText(getApplicationContext(),getResources().getString(R.string.holderText),Toast.LENGTH_LONG).show();
+                    amount = null;
                 }
                 else{
                     Toast.makeText(getApplicationContext(),amountSpinner.getSelectedItem().toString(),Toast.LENGTH_LONG).show();
+                    amount = amountSpinner.getSelectedItem().toString();
                 }
             }
 
