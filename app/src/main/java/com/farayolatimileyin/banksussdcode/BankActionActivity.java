@@ -161,6 +161,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         ussdActionDialog.setNegativeButton("CLOSE", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                amount = null;
                 return;
             }
         });
