@@ -123,7 +123,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
     }
 
     public void performUssdTransaction(String action, String ussd, String amount, String phoneNumber, String acctNumber){
-        String ud = ussd+"*"+amount+"*"+phoneNumber+"#";
+        String ud = ussd+amount+"*"+phoneNumber+"#";
         confirmAction(action,ud);
     }
 
@@ -144,6 +144,8 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                 return;
             }
         });
+        AlertDialog transactionConfirmationDialog = confirmDialog.create();
+        transactionConfirmationDialog.show();
     }
 
     public View makeDialogView(int layoutResource){
@@ -156,6 +158,12 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         AlertDialog.Builder ussdActionDialog = new AlertDialog.Builder(BankActionActivity.this);
         ussdActionDialog.setView(view);
         ussdActionDialog.setCancelable(true);
+        ussdActionDialog.setNegativeButton("CLOSE", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                return;
+            }
+        });
         AlertDialog ussdDialog = ussdActionDialog.create();
         ussdDialog.show();
     }
@@ -182,7 +190,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                 populateSpinnerWithAirtimeAmount(view);
                 createDialog(view);
                 break;
-            case "Buy Airtime":
+            case "Buy airtime":
             case "Buy airtime for others":
                 view = makeDialogView(R.layout.buy_airtime_others_layout);
                 receipient = (EditText) view.findViewById(R.id.phoneNumber);
@@ -195,8 +203,8 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                         startActivityForResult(phoneNumberPickerIntent,N_RESULT_CODE);
                     }
                 });
-                Button transferBtn = (Button) view.findViewById(R.id.buyBtn);
-                transferBtn.setOnClickListener(new View.OnClickListener() {
+                Button buyBtn = (Button) view.findViewById(R.id.buyBtn);
+                buyBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         performUssdTransaction(action_name,ussd,amount,receipient.getText().toString(),null);
