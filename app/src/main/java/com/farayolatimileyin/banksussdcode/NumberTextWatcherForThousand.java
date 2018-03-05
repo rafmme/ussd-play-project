@@ -2,6 +2,9 @@ package com.farayolatimileyin.banksussdcode;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.EditText;
+
+import java.util.StringTokenizer;
 
 /**
  * Created by FARAYOLA-FBTS on 05/03/2018.
@@ -13,7 +16,6 @@ public class NumberTextWatcherForThousand implements TextWatcher {
 
     public NumberTextWatcherForThousand(EditText editText) {
         this.editText = editText;
-
 
     }
 
