@@ -122,8 +122,27 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
 
     }
 
+    public static String cleanAmountString(String amountWithNairaSign){
+        String[] a = amountWithNairaSign.split("[,]");
+        String b = "";
+        for(String i : a){
+            b += i;
+        }
+        return b.split("[₦]")[1];
+    }
+
+    public static String removeNameFromContact(String contactWithName){
+        if(contactWithName.contains(":")){
+            String[] h = contactWithName.split("[:]");
+            return h[1];
+        }
+        else {
+            return contactWithName;
+        }
+    }
+
     public void performUssdTransaction(String action, String ussd, String amount, String phoneNumber, String acctNumber){
-        String ud = ussd+amount+"*"+phoneNumber+"#";
+        String ud = ussd+cleanAmountString(amount)+"*"+removeNameFromContact(phoneNumber)+"#";
         confirmAction(action,ud);
     }
 
@@ -241,7 +260,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                 int receipientAcctNumIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
                 receipientAcctNum = cursor.getString(receipientAcctNumIndex);
                 receipientName = cursor.getString(receipientNameIndex);
-                receipient.setText(receipientName+" : "+receipientAcctNum);
+                receipient.setText(receipientName+":"+receipientAcctNum);
 
             }
         }
@@ -259,7 +278,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                 int receipientPhoneNumIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
                 receipientPhoneNumber = formatPhoneNumber(cursor.getString(receipientPhoneNumIndex));
                 receipientName = cursor.getString(receipientNameIndex);
-                receipient.setText(receipientName+" : "+receipientPhoneNumber);
+                receipient.setText(receipientName+":"+receipientPhoneNumber);
 
             }
         }
