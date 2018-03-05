@@ -31,15 +31,33 @@ import butterknife.ButterKnife;
 
 public class BankActionActivity extends AppCompatActivity implements BankActionAdapter.BankActionGridItemClickListener {
 
+    static final int RESULT_CODE = 7;
+    static final int N_RESULT_CODE = 8;
     @BindView(R.id.bank_icon) ImageView bankImage;
     RecyclerView rv_action;
     RecyclerView.Adapter actionAdapter;
     ArrayList<BankUssdData> actionList = new ArrayList<>();
     String ussdCode,receipientName,receipientAcctNum,receipientPhoneNumber,bankName,amount;
     EditText receipient;
-    static final int RESULT_CODE = 7;
-    static final int N_RESULT_CODE = 8;
     View view;
+
+    public static String cleanAmountString(String amountWithNairaSign) {
+        String[] a = amountWithNairaSign.split("[,]");
+        String b = "";
+        for (String i : a) {
+            b += i;
+        }
+        return b.split("[₦]")[1];
+    }
+
+    public static String removeNameFromContact(String contactWithName) {
+        if (contactWithName.contains(":")) {
+            String[] h = contactWithName.split("[:]");
+            return h[1];
+        } else {
+            return contactWithName;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,25 +140,6 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
 
     }
 
-    public static String cleanAmountString(String amountWithNairaSign){
-        String[] a = amountWithNairaSign.split("[,]");
-        String b = "";
-        for(String i : a){
-            b += i;
-        }
-        return b.split("[₦]")[1];
-    }
-
-    public static String removeNameFromContact(String contactWithName){
-        if(contactWithName.contains(":")){
-            String[] h = contactWithName.split("[:]");
-            return h[1];
-        }
-        else {
-            return contactWithName;
-        }
-    }
-
     public void performUssdTransaction(String action, String ussd, String amount, String phoneNumber, String acctNumber){
         String ud = ussd+cleanAmountString(amount)+"*"+removeNameFromContact(phoneNumber)+"#";
         confirmAction(action,ud);
@@ -192,12 +191,21 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         if(action_name.startsWith("Transfer money")){
             view = makeDialogView(R.layout.money_transfer_layout);
             receipient = (EditText) view.findViewById(R.id.accountNumber);
+            final EditText amountText = (EditText) view.findViewById(R.id.amount);
+            amountText.addTextChangedListener(new NumberTextWatcherForThousand(amountText));
             Button pickAcctNumFromContactListBtn = (Button) view.findViewById(R.id.pickAcctNumBtn);
             pickAcctNumFromContactListBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent accountNumberPickerIntent = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
                     startActivityForResult(accountNumberPickerIntent,RESULT_CODE);
+                }
+            });
+            Button transferBtn = (Button) view.findViewById(R.id.transferBtn);
+            transferBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    performUssdTransaction(action_name, ussd, amountText.getText().toString(), receipient.getText().toString(), null);
                 }
             });
             createDialog(view);
