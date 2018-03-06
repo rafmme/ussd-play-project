@@ -41,13 +41,24 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
     EditText receipient;
     View view;
 
-    public static String cleanAmountString(String amountWithNairaSign) {
-        String[] a = amountWithNairaSign.split("[,]");
+
+    public static String cleanAmountString(String amountWithNairaSign){
         String b = "";
-        for (String i : a) {
-            b += i;
+        if (amountWithNairaSign.contains("₦")){
+            String[] a = amountWithNairaSign.split(" ");
+
+            for(String i : a[1].split(",")){
+                b += i;
+            }
+            return b;
         }
-        return b.split("[₦]")[1];
+        else {
+            for(String i : amountWithNairaSign.split(",")){
+                b += i;
+            }
+            return b;
+        }
+
     }
 
     public static String removeNameFromContact(String contactWithName) {
