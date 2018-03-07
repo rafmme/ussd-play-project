@@ -37,7 +37,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
     RecyclerView rv_action;
     RecyclerView.Adapter actionAdapter;
     ArrayList<BankUssdData> actionList = new ArrayList<>();
-    String ussdCode,receipientName,receipientAcctNum,receipientPhoneNumber,bankName,amount;
+    String ussdCode, bankName, amount;
     EditText receipient;
     View view;
 
@@ -277,9 +277,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
             if (cursor.moveToFirst()) {
                 int receipientNameIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
                 int receipientAcctNumIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-                receipientAcctNum = cursor.getString(receipientAcctNumIndex);
-                receipientName = cursor.getString(receipientNameIndex);
-                receipient.setText(receipientName+":"+receipientAcctNum);
+                receipient.setText(cursor.getString(receipientNameIndex) + ":" + cursor.getString(receipientAcctNumIndex));
 
             }
         }
@@ -295,9 +293,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
             if (cursor.moveToFirst()) {
                 int receipientNameIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
                 int receipientPhoneNumIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-                receipientPhoneNumber = formatPhoneNumber(cursor.getString(receipientPhoneNumIndex));
-                receipientName = cursor.getString(receipientNameIndex);
-                receipient.setText(receipientName+":"+receipientPhoneNumber);
+                receipient.setText(cursor.getString(receipientNameIndex) + ":" + formatPhoneNumber(cursor.getString(receipientPhoneNumIndex)));
 
             }
         }
