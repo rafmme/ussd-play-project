@@ -277,7 +277,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
             if (cursor.moveToFirst()) {
                 int receipientNameIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
                 int receipientAcctNumIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-                receipient.setText(cursor.getString(receipientNameIndex) + ":" + cursor.getString(receipientAcctNumIndex));
+                receipient.setText(cursor.getString(receipientNameIndex) + ":" + formatAccountNumber(cursor.getString(receipientAcctNumIndex)));
 
             }
         }
@@ -330,6 +330,21 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         });
     }
 
+
+    public String formatAccountNumber(String acctNum) {
+        if (!acctNum.contains("-") && !acctNum.contains(" ") && !acctNum.contains("(") && !acctNum.contains(")")) {
+            return acctNum;
+        } else {
+            String newAcctNum = "";
+            String[] s = acctNum.split("");
+            for (String i : s) {
+                if ((!i.equals("-")) && (!i.equals(" ")) && (!i.equals("(")) && (!i.equals(")"))) {
+                    newAcctNum += i;
+                }
+            }
+            return newAcctNum;
+        }
+    }
 
     public String formatPhoneNumber(String rawNumber){
         String cPN = "";
