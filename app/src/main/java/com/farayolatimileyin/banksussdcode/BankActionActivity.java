@@ -152,6 +152,11 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
     }
 
     public void performUssdTransaction(String action, String ussd, String amount, String phoneNumber, String acctNumber){
+        if(phoneNumber == null){
+            String ud = ussd+cleanAmountString(amount)+"#";
+            confirmAction(action,ud);
+            return;
+        }
         String ud = ussd+cleanAmountString(amount)+"*"+removeNameFromContact(phoneNumber)+"#";
         confirmAction(action,ud);
     }
@@ -199,6 +204,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
     }
 
     public void showPerformUssdDialog(final String action_name, final String ussd, /*for headertext in transfer money layout*/String bName){
+        Button buyBtn;
         if(action_name.startsWith("Transfer money")){
             view = makeDialogView(R.layout.money_transfer_layout);
             receipient = (EditText) view.findViewById(R.id.accountNumber);
@@ -227,6 +233,13 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
             case "Buy airtime for self":
                 view = makeDialogView(R.layout.buy_airtime_self);
                 populateSpinnerWithAirtimeAmount(view);
+                buyBtn = (Button) view.findViewById(R.id.buyBtn);
+                buyBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        performUssdTransaction(getResources().getString(R.string.airtime_self,amount),ussd,amount,null,null);
+                    }
+                });
                 createDialog(view);
                 break;
             case "Buy airtime":
@@ -242,7 +255,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                         startActivityForResult(phoneNumberPickerIntent,N_RESULT_CODE);
                     }
                 });
-                Button buyBtn = (Button) view.findViewById(R.id.buyBtn);
+                buyBtn = (Button) view.findViewById(R.id.buyBtn);
                 buyBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
