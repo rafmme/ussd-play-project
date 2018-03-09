@@ -40,4 +40,8 @@
     <string name="wema_image">wemabank</string>
     <string name="zenith_image">zenithbank</string>
 
+    <string name="money_transfer">Transfer the sum of  ₦%1$s to %2$s</string>
+    <string name="airtime_self">Purchase ₦%1$s Airtime for self</string>
+    <string name="airtime_others">Purchase ₦%1$s Airtime for %2$s</string>
+
 </resources>

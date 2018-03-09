@@ -216,7 +216,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
             transferBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    performUssdTransaction(action_name, ussd, amountText.getText().toString(), receipient.getText().toString(), null);
+                    performUssdTransaction(getResources().getString(R.string.money_transfer,amountText.getText().toString(),receipient.getText().toString()), ussd, amountText.getText().toString(), receipient.getText().toString(), null);
                 }
             });
             createDialog(view);
@@ -246,7 +246,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                 buyBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        performUssdTransaction(action_name,ussd,amount,receipient.getText().toString(),null);
+                        performUssdTransaction(getResources().getString(R.string.airtime_others,amount,receipient.getText().toString()),ussd,amount,receipient.getText().toString(),null);
                     }
                 });
                 createDialog(view);
