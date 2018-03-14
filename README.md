@@ -2,4 +2,6 @@
 
 # USSD APP
 
-![alt tag](https://github.com/rafmme/ussd-play-project/blob/master/sample/app-screenshot.jpg "App Sample UI")
+<div style="text-align:center">
+    <img src="./gif/usage.gif" />
+</div>
