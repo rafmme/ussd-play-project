@@ -19,7 +19,7 @@
                 android:background="@color/colorPrimaryDark">
 
                 <TextView
-                    android:id="@+id/dialogTitleTextForMoneyTransfer"
+                    android:id="@+id/dialogTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -40,16 +40,16 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/accountNumber"
+                android:id="@+id/stmCardNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:ems="10"
-                android:hint="e.g. 0213567570 "
+                android:hint="e.g. 0013567570 "
                 android:inputType="number" />
 
             <Button
-                android:id="@+id/pickAcctNumBtn"
+                android:id="@+id/pickCardNumBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -75,7 +75,7 @@
                 android:inputType="number" />
 
             <Button
-                android:id="@+id/transferBtn"
+                android:id="@+id/subscribeBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
