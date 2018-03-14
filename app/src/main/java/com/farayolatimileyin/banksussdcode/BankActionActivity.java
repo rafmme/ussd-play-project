@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
     String ussdCode, bankName, amount;
     EditText receipient;
     View view;
+    TextView actionDescriptionTextView;
 
 
     public static String cleanAmountString(String amountWithNairaSign){
@@ -210,6 +212,8 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
             receipient = (EditText) view.findViewById(R.id.accountNumber);
             final EditText amountText = (EditText) view.findViewById(R.id.amount);
             amountText.addTextChangedListener(new NumberTextWatcherForThousand(amountText));
+            actionDescriptionTextView = (TextView) view.findViewById(R.id.dialogTitleTextForMoneyTransfer);
+            actionDescriptionTextView.setText(action_name.toUpperCase());
             Button pickAcctNumFromContactListBtn = (Button) view.findViewById(R.id.pickAcctNumBtn);
             pickAcctNumFromContactListBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -247,6 +251,8 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                 view = makeDialogView(R.layout.buy_airtime_others_layout);
                 receipient = (EditText) view.findViewById(R.id.phoneNumber);
                 populateSpinnerWithAirtimeAmount(view);
+                actionDescriptionTextView = (TextView) view.findViewById(R.id.dialogTitleTextForAirtimeOthers);
+                actionDescriptionTextView.setText(action_name.toUpperCase());
                 Button pickPhoneNumFromContactListBtn = (Button) view.findViewById(R.id.pickNumberBtn);
                 pickPhoneNumFromContactListBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
