@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,9 +12,9 @@
 
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -22,68 +22,68 @@
             android:background="@color/colorPrimaryDark">
 
             <TextView
-                android:text="TRANSFER MONEY"
+                android:id="@+id/dialogTitleTextForMoneyTransfer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:id="@+id/dialogTitleTextForMoneyTransfer"
+                android:layout_centerVertical="true"
+                android:text="TRANSFER MONEY"
                 android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:textSize="20sp" />
+                android:textSize="15sp"
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <TextView
-            android:text="ACCOUNT NUMBER"
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:textStyle="bold"
+            android:text="ACCOUNT NUMBER"
             android:textSize="15sp"
-            android:id="@+id/textView2" />
+            android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/accountNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:inputType="number"
             android:ems="10"
-            android:id="@+id/accountNumber"
-            android:hint="e.g. 0213567570 " />
+            android:hint="e.g. 0213567570 "
+            android:inputType="number" />
 
         <Button
-            android:text="Pick Acct. No. from Phonebook"
-            android:layout_margin="15dp"
+            android:id="@+id/pickAcctNumBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:id="@+id/pickAcctNumBtn" />
+            android:layout_margin="15dp"
+            android:text="Pick Acct. No. from Phonebook" />
 
         <TextView
-            android:text="AMOUNT (₦)"
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:textStyle="bold"
+            android:text="AMOUNT (₦)"
             android:textSize="15sp"
-            android:id="@+id/textView3" />
+            android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:inputType="number"
             android:ems="10"
             android:hint="e.g. 5000 "
-            android:id="@+id/amount" />
+            android:inputType="number" />
 
         <Button
-            android:text="TRANSFER"
-            android:layout_margin="15dp"
+            android:id="@+id/transferBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:id="@+id/transferBtn" />
+            android:layout_margin="15dp"
+            android:text="TRANSFER" />
 
     </LinearLayout>
 

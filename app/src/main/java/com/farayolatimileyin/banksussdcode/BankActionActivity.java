@@ -22,10 +22,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
-
+import com.farayolatimileyin.banksussdcode.Util.Utils;
 import java.util.ArrayList;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -34,41 +34,15 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
     static final int RESULT_CODE = 7;
     static final int N_RESULT_CODE = 8;
     @BindView(R.id.bank_icon) ImageView bankImage;
+    AlertDialog ussdDialog;
     RecyclerView rv_action;
     RecyclerView.Adapter actionAdapter;
     ArrayList<BankUssdData> actionList = new ArrayList<>();
     String ussdCode, bankName, amount;
     EditText receipient;
     View view;
+    TextView actionDescriptionTextView;
 
-
-    public static String cleanAmountString(String amountWithNairaSign){
-        String b = "";
-        if (amountWithNairaSign.contains("₦")){
-            String[] a = amountWithNairaSign.split(" ");
-
-            for(String i : a[1].split(",")){
-                b += i;
-            }
-            return b;
-        }
-        else {
-            for(String i : amountWithNairaSign.split(",")){
-                b += i;
-            }
-            return b;
-        }
-
-    }
-
-    public static String removeNameFromContact(String contactWithName) {
-        if (contactWithName.contains(":")) {
-            String[] h = contactWithName.split("[:]");
-            return h[1];
-        } else {
-            return contactWithName;
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,7 +114,6 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
 
     public void makeCall(String code){
         if(ActivityCompat.checkSelfPermission(this,Manifest.permission.CALL_PHONE)==PackageManager.PERMISSION_GRANTED){
-            Toast.makeText(getApplicationContext(),"button clicked "+code,Toast.LENGTH_LONG).show();
             Intent dialIntent = new Intent(Intent.ACTION_CALL);
             dialIntent.setData(Uri.parse("tel:"+code));
             this.startActivity(dialIntent);
@@ -153,11 +126,11 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
 
     public void performUssdTransaction(String action, String ussd, String amount, String phoneNumber, String acctNumber){
         if(phoneNumber == null){
-            String ud = ussd+cleanAmountString(amount)+"#";
+            String ud = ussd+Utils.cleanAmountString(amount)+"#";
             confirmAction(action,ud);
             return;
         }
-        String ud = ussd+cleanAmountString(amount)+"*"+removeNameFromContact(phoneNumber)+"#";
+        String ud = ussd+Utils.cleanAmountString(amount)+"*"+Utils.removeNameFromContact(phoneNumber)+"#";
         confirmAction(action,ud);
     }
 
@@ -169,6 +142,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
         confirmDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                ussdDialog.cancel();
                 dial(completeUssdCode);
             }
         });
@@ -199,7 +173,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                 return;
             }
         });
-        AlertDialog ussdDialog = ussdActionDialog.create();
+        ussdDialog = ussdActionDialog.create();
         ussdDialog.show();
     }
 
@@ -210,6 +184,8 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
             receipient = (EditText) view.findViewById(R.id.accountNumber);
             final EditText amountText = (EditText) view.findViewById(R.id.amount);
             amountText.addTextChangedListener(new NumberTextWatcherForThousand(amountText));
+            actionDescriptionTextView = (TextView) view.findViewById(R.id.dialogTitleTextForMoneyTransfer);
+            actionDescriptionTextView.setText(action_name.toUpperCase());
             Button pickAcctNumFromContactListBtn = (Button) view.findViewById(R.id.pickAcctNumBtn);
             pickAcctNumFromContactListBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -247,6 +223,8 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                 view = makeDialogView(R.layout.buy_airtime_others_layout);
                 receipient = (EditText) view.findViewById(R.id.phoneNumber);
                 populateSpinnerWithAirtimeAmount(view);
+                actionDescriptionTextView = (TextView) view.findViewById(R.id.dialogTitleTextForAirtimeOthers);
+                actionDescriptionTextView.setText(action_name.toUpperCase());
                 Button pickPhoneNumFromContactListBtn = (Button) view.findViewById(R.id.pickNumberBtn);
                 pickPhoneNumFromContactListBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -262,6 +240,10 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
                         performUssdTransaction(getResources().getString(R.string.airtime_others,amount,receipient.getText().toString()),ussd,amount,receipient.getText().toString(),null);
                     }
                 });
+                createDialog(view);
+                break;
+            case "StarTimes Subscription":
+                view = makeDialogView(R.layout.startime_subs_layout);
                 createDialog(view);
                 break;
 
@@ -290,7 +272,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
             if (cursor.moveToFirst()) {
                 int receipientNameIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
                 int receipientAcctNumIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-                receipient.setText(cursor.getString(receipientNameIndex) + ":" + formatAccountNumber(cursor.getString(receipientAcctNumIndex)));
+                receipient.setText(cursor.getString(receipientNameIndex) + ":" + Utils.formatAccountNumber(cursor.getString(receipientAcctNumIndex)));
 
             }
         }
@@ -306,7 +288,7 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
             if (cursor.moveToFirst()) {
                 int receipientNameIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
                 int receipientPhoneNumIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-                receipient.setText(cursor.getString(receipientNameIndex) + ":" + formatPhoneNumber(cursor.getString(receipientPhoneNumIndex)));
+                receipient.setText(cursor.getString(receipientNameIndex) + ":" + Utils.formatPhoneNumber(cursor.getString(receipientPhoneNumIndex)));
 
             }
         }
@@ -327,11 +309,9 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(amountSpinner.getSelectedItem().toString() == "Airtime Amount (₦)"){
-                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.holderText),Toast.LENGTH_LONG).show();
                     amount = null;
                 }
                 else{
-                    Toast.makeText(getApplicationContext(),amountSpinner.getSelectedItem().toString(),Toast.LENGTH_LONG).show();
                     amount = amountSpinner.getSelectedItem().toString();
                 }
             }
@@ -342,52 +322,4 @@ public class BankActionActivity extends AppCompatActivity implements BankActionA
             }
         });
     }
-
-
-    public String formatAccountNumber(String acctNum) {
-        if (!acctNum.contains("-") && !acctNum.contains(" ") && !acctNum.contains("(") && !acctNum.contains(")")) {
-            return acctNum;
-        } else {
-            String newAcctNum = "";
-            String[] s = acctNum.split("");
-            for (String i : s) {
-                if ((!i.equals("-")) && (!i.equals(" ")) && (!i.equals("(")) && (!i.equals(")"))) {
-                    newAcctNum += i;
-                }
-            }
-            return newAcctNum;
-        }
-    }
-
-    public String formatPhoneNumber(String rawNumber){
-        String cPN = "";
-        if(rawNumber.startsWith("+234")) {
-            cPN += "0";
-            String[] numArray = rawNumber.substring(4,rawNumber.length()).split("");
-            for(String i : numArray){
-                if((!i.equals("-"))&& (!i.equals(" "))){
-                    cPN += i;
-                }
-            }
-
-        }
-
-        else{
-            if (rawNumber.startsWith("0")) {
-                String[] numArray = rawNumber.split("");
-                for (String i : numArray) {
-                    if ((!i.equals("-")) && (!i.equals(" "))) {
-                        cPN += i;
-                    }
-                }
-            }
-
-            else{
-                cPN = rawNumber;
-            }
-        }
-        return cPN;
-    }
-
-
 }
